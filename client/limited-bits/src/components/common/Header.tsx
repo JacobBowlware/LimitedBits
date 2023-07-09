@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
     return (
-        <div className="section-container">
+        <div className="section-container mt-0 pt-2">
             <nav className="navbar navbar-expand-lg">
                 <Link className="navbar-brand" to="/">
                     <img src={LimitedBitsLogo} alt="LimitedBits Logo" className="navbar-brand__img" />
@@ -23,9 +23,9 @@ const Header = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className="nav-item nav-link active" href="/#">Explore<span className="sr-only">(current)</span></a>
-                        <a className="nav-item nav-link" href="/#">Sign Up</a>
-                        <a className="nav-item nav-link" href="/#">Log In</a>
+                        <a className="nav-item nav-link active" href="/#feed">Feed<span className="sr-only">(current)</span></a>
+                        <Link className="nav-item nav-link" to="/sign-up">Sign Up</Link>
+                        <Link className="nav-item nav-link" to="/log-in">Log In</Link>
                     </div>
                 </div>
             </nav>

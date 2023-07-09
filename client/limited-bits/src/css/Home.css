@@ -1,8 +1,11 @@
-.home-hero {}
+.home-hero {
+    margin-bottom: 0;
+}
 
 .home-hero__header {
     margin: .5rem 0;
     font-weight: 800;
+    font-size: 2rem;
 }
 
 .home-hero__p {
@@ -12,7 +15,7 @@
 
 .home-hero__header-sm {
     color: var(--var-secondary);
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     margin: 0;
     font-weight: 800;
 }
@@ -21,11 +24,19 @@
     .home-hero__header-sm {
         font-size: 1.6rem;
     }
+
+    .home-hero__header {
+        font-size: 2.2rem;
+    }
 }
 
 @media screen and (min-width: 1024px) {
     .home-hero__header-sm {
         font-size: 1.8rem;
+    }
+
+    .home-hero__header {
+        font-size: 2.4rem;
     }
 }
 
@@ -33,9 +44,24 @@
     .home-hero__header-sm {
         font-size: 2rem;
     }
+
+    .home-hero__header {
+        font-size: 2.6rem;
+    }
 }
 
 /* Home Value Prop */
-.home-value {
-    margin-top: 2rem;
+.home-value {}
+
+/* Home Feed */
+.home-feed-card-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .3rem;
+}
+
+@media screen and (min-width: 768px) {
+    .home-feed-card-container {
+        grid-template-columns: 1fr
+    }
 }

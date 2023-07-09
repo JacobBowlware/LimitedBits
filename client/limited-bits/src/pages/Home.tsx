@@ -1,6 +1,7 @@
-import { faCompass, faMedal, faShareSquare } from "@fortawesome/free-solid-svg-icons";
+import { faCompass, faMedal, faShareSquare, faUser, faUserDoctor, faUserSecret, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ValueCard from "../components/common/ValueCard";
+import FeedCard from "../components/common/FeedCard";
 
 const Home = () => {
     return (
@@ -38,8 +39,31 @@ const Home = () => {
                     on thoughtful and valuable contributions." highlight={true} />
                 </div>
             </div>
-            <div className="section-container home-feed">
-
+            <div className="section-container section-container-light">
+                <div className="section-container__item-grid reverse-flow">
+                    <div className="home-feed-card-container">
+                        <FeedCard icon={faUser} body="Overwhelm resistance with speed and suddenness." username="Jacob" />
+                        <FeedCard icon={faUserSecret} body="Believe in yourself!" username="Yameli" />
+                        <FeedCard icon={faUserTie} body="&quot;Better one bad general than two good ones.&quot; - Napoleon Bonaparte" username="Grito" />
+                    </div>
+                    <div className="section-container__item-grid__item align-left">
+                        <h2 className="section-container__header text-highlight home-feed-header">
+                            Elevate Your Feed
+                        </h2>
+                        <p className="section-container__p home-feed-p">
+                            Join a community of like-minded individuals who are passionate about
+                            self-improvement and personal growth.
+                        </p>
+                        <p className="section-container__p home-feed-p">
+                            Everyone has something to share, and everyone has something to learn. No
+                            matter where you are in your journey, you can always benefit from the
+                            wisdom of others.
+                        </p>
+                        <button className="btn mt-2 w-100">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
             </div>
         </>
     );

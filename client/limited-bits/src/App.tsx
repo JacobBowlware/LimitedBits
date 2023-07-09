@@ -8,6 +8,7 @@ import './css/App.css';
 import './css/Home.css';
 import './css/Header.css';
 import './css/ValueCard.css';
+import './css/FeedCard.css';
 
 // Pages
 import Home from './pages/Home';
