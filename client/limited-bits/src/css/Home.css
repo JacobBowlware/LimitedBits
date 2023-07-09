@@ -1,0 +1,41 @@
+.home-hero {}
+
+.home-hero__header {
+    margin: .5rem 0;
+    font-weight: 800;
+}
+
+.home-hero__p {
+    margin: .3rem 0;
+    font-weight: 500;
+}
+
+.home-hero__header-sm {
+    color: var(--var-secondary);
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 800;
+}
+
+@media screen and (min-width: 768px) {
+    .home-hero__header-sm {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .home-hero__header-sm {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .home-hero__header-sm {
+        font-size: 2rem;
+    }
+}
+
+/* Home Value Prop */
+.home-value {
+    margin-top: 2rem;
+}

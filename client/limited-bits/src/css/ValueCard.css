@@ -1,0 +1,26 @@
+.value-card {
+    background: var(--var-background-light);
+    padding: 2rem;
+}
+
+.value-card__icon {
+    color: var(--var-secondary);
+    font-size: 3rem;
+}
+
+.value-card__header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.value-card__p {
+    font-size: 1rem;
+    color: var(--var-text);
+    margin: .3rem 0;
+}
+
+.value-card-highlight {
+    background: var(--var-secondary);
+    color: var(--var-primary);
+}
