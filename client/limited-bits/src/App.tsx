@@ -6,9 +6,10 @@ import {
 // CSS
 import './css/App.css';
 import './css/Home.css';
-import './css/Header.css';
-import './css/ValueCard.css';
-import './css/FeedCard.css';
+import './css/components/Header.css';
+import './css/components/ValueCard.css';
+import './css/components/FeedCard.css';
+import './css/components/ReviewCard.css';
 
 // Pages
 import Home from './pages/Home';

@@ -1,0 +1,27 @@
+.home-review-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--var-background-light);
+    padding: 1rem;
+}
+
+.home-review-card__header {
+    width: 100%;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.home-review-card__icon-container {
+    font-size: 1.1rem;
+}
+
+.home-review-card__p {
+    text-align: left;
+    width: 100%;
+    color: var(--var-text);
+}

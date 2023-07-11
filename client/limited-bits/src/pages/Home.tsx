@@ -1,7 +1,8 @@
-import { faCompass, faMedal, faShareSquare, faUser, faUserDoctor, faUserSecret, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faCompass, faMedal, faShareSquare, faStar, faUser, faUserDoctor, faUserSecret, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ValueCard from "../components/common/ValueCard";
 import FeedCard from "../components/common/FeedCard";
+import ReviewCard from "../components/common/ReviewCard";
 
 const Home = () => {
     return (
@@ -47,7 +48,7 @@ const Home = () => {
                         <FeedCard icon={faUserTie} body="&quot;Better one bad general than two good ones.&quot; - Napoleon Bonaparte" username="Grito" />
                     </div>
                     <div className="section-container__item-grid__item align-left">
-                        <h2 className="section-container__header text-highlight home-feed-header">
+                        <h2 className="section-container__header  home-feed-header">
                             Elevate Your Feed
                         </h2>
                         <p className="section-container__p home-feed-p">
@@ -63,6 +64,25 @@ const Home = () => {
                             Get Started
                         </button>
                     </div>
+                </div>
+            </div>
+            <div className="section-container home-review">
+                <div className="section-container__item mb-3">
+                    <h2 className="section-container__header">
+                        USER REVIEWS
+                    </h2>
+                    <p className="section-container__p mt-0">
+                        See what our users have to say about LimitedBits.
+                    </p>
+                </div>
+                <div className="section-container__item-grid section-container__item-grid-3col">
+                    <ReviewCard name="John D." review="&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio tenetur
+                            dicta aspernatur neque officia libero.&quot;" rating={3} />
+                    <ReviewCard name="Alex M."
+                        review="&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Optio tenetur" rating={5} />
+                    <ReviewCard name="Jane S." review="&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Optio tenetur dicta aspernatur neque officia libero.&quot;" rating={4} />
                 </div>
             </div>
         </>
