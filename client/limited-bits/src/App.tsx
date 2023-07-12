@@ -7,6 +7,7 @@ import {
 import './css/App.css';
 import './css/Home.css';
 import './css/components/Header.css';
+import './css/components/Footer.css';
 import './css/components/ValueCard.css';
 import './css/components/FeedCard.css';
 import './css/components/ReviewCard.css';
