@@ -5,7 +5,7 @@
 .home-hero__header {
     margin: .5rem 0;
     font-weight: 800;
-    font-size: 2rem;
+    font-size: 2.2rem;
 }
 
 .home-hero__p {
@@ -15,9 +15,13 @@
 
 .home-hero__header-sm {
     color: var(--var-secondary);
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     margin: 0;
     font-weight: 800;
+}
+
+.home-hero__btn {
+    width: 100%;
 }
 
 @media screen and (min-width: 768px) {
@@ -27,6 +31,10 @@
 
     .home-hero__header {
         font-size: 2.2rem;
+    }
+
+    .home-hero__btn {
+        width: auto;
     }
 }
 

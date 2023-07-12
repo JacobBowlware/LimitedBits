@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
     return (
-        <div className="section-container mt-0 pt-2">
+        <div className="section-container mt-0 pt-2 mb-0">
             <nav className="navbar navbar-expand-lg">
                 <Link className="navbar-brand" to="/">
                     <img src={LimitedBitsLogo} alt="LimitedBits Logo" className="navbar-brand__img" />

@@ -20,14 +20,12 @@ const Home = () => {
                             Share your weekly bit of wisdom, info, or advice with the world. Make
                             it count though, because you can only post one bit per week.
                         </p>
-                        <button className="btn mt-2">
+                        <button className="btn mt-2 home-hero__btn">
                             Get Started
                         </button>
                     </div>
                 </div>
-            </div>
-            <div className="section-container home-value">
-                <div className="section-container__item-grid section-container__item-grid-3col">
+                <div className="section-container__item-grid section-container__item-grid-3col mt-5">
                     <ValueCard icon={faShareSquare} header="Share Your Bits" body="Share your 
                     thoughts, experiences, and insights with the community. Each week, 
                     you can post a single bit that captures your most valuable lesson, 
@@ -66,6 +64,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            {/* TODO: Implement a large image of user home-page/profile/etc. Maybe a collage pic?*/}
             <div className="section-container home-review">
                 <div className="section-container__item mb-3">
                     <h2 className="section-container__header">
@@ -77,12 +76,12 @@ const Home = () => {
                 </div>
                 <div className="section-container__item-grid section-container__item-grid-3col">
                     <ReviewCard name="John D." review="&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio tenetur
-                            dicta aspernatur neque officia libero.&quot;" rating={3} />
+                            dicta aspernatur neque officia libero.&quot;" rating={4} />
                     <ReviewCard name="Alex M."
                         review="&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Optio tenetur" rating={5} />
                     <ReviewCard name="Jane S." review="&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Optio tenetur dicta aspernatur neque officia libero.&quot;" rating={4} />
+                    Optio tenetur dicta aspernatur neque officia libero.&quot;" rating={5} />
                 </div>
             </div>
         </>
