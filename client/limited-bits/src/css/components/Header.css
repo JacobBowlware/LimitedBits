@@ -13,6 +13,7 @@
 .navbar-brand {
     color: var(--var-primary);
     text-transform: uppercase;
+    transition: all .3s;
 }
 
 .navbar-brand {

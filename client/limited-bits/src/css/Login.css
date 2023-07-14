@@ -1,0 +1,11 @@
+.login-container {
+    min-height: 75vh;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--var-background-light);
+}

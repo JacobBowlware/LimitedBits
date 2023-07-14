@@ -16,6 +16,16 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Kanit', sans-serif;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#features,
+#reviews {
+  scroll-margin-top: 5rem;
 }
 
 /* Containers */
@@ -175,4 +185,50 @@ body {
   .btn {
     font-size: 1.2rem;
   }
+}
+
+/* Forms */
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-header {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.form-input {
+  width: 100%;
+  margin-bottom: .3rem;
+  padding: .5rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border: 1px solid var(--var-background-light);
+}
+
+.form-btn {
+  width: 100%;
+}
+
+.form-helper {
+  margin: 0.3rem 0 0 0;
+  color: var(--var-text);
+}
+
+.form-link {
+  color: #fff;
+  transition: all .3s;
+}
+
+.form-link:hover {
+  text-decoration: none;
+  color: var(--var-secondary);
 }

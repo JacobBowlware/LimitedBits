@@ -11,9 +11,13 @@ import './css/components/Footer.css';
 import './css/components/ValueCard.css';
 import './css/components/FeedCard.css';
 import './css/components/ReviewCard.css';
+import './css/SignUp.css';
+import './css/Login.css';
 
 // Pages
 import Home from './pages/Home';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 // Components
 import Header from './components/common/Header'
@@ -34,6 +38,8 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Home />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<Home />} />
       </Route>
     )

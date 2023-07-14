@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ValueCard from "../components/common/ValueCard";
 import FeedCard from "../components/common/FeedCard";
 import ReviewCard from "../components/common/ReviewCard";
+import { Link } from "react-router-dom";
 
 const Home = () => {
     return (
@@ -20,12 +21,12 @@ const Home = () => {
                             Share your weekly bit of wisdom, info, or advice with the world. Make
                             it count though, because you can only post one bit per week.
                         </p>
-                        <button className="btn mt-2 home-hero__btn">
+                        <Link to="/sign-up" className="btn mt-2 home-hero__btn">
                             Get Started
-                        </button>
+                        </Link>
                     </div>
                 </div>
-                <div className="section-container__item-grid section-container__item-grid-3col mt-5">
+                <div className="section-container__item-grid section-container__item-grid-3col mt-5" id="features">
                     <ValueCard icon={faShareSquare} header="Share Your Bits" body="Share your 
                     thoughts, experiences, and insights with the community. Each week, 
                     you can post a single bit that captures your most valuable lesson, 
@@ -58,14 +59,14 @@ const Home = () => {
                             matter where you are in your journey, you can always benefit from the
                             wisdom of others.
                         </p>
-                        <button className="btn mt-2 w-100">
+                        <Link to="/sign-up" className="btn mt-2 w-100">
                             Get Started
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
             {/* TODO: Implement a large image of user home-page/profile/etc. Maybe a collage pic?*/}
-            <div className="section-container home-review">
+            <div className="section-container home-review" id="reviews">
                 <div className="section-container__item mb-3">
                     <h2 className="section-container__header">
                         USER REVIEWS
@@ -82,6 +83,11 @@ const Home = () => {
                     Optio tenetur" rating={5} />
                     <ReviewCard name="Jane S." review="&quot;Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Optio tenetur dicta aspernatur neque officia libero.&quot;" rating={5} />
+                </div>
+                <div className="section-container__item">
+                    <Link to="/sign-up" className="btn mt-3 w-100">
+                        Get Started
+                    </Link>
                 </div>
             </div>
         </>

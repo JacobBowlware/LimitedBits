@@ -1,7 +1,7 @@
 .home-review-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     background: var(--var-background-light);
     padding: 1rem;
