@@ -221,6 +221,13 @@ html {
 .form-helper {
   margin: 0.3rem 0 0 0;
   color: var(--var-text);
+  text-align: center;
+}
+
+.form-error {
+  color: var(--var-text);
+  width: 100%;
+  margin: 0 0 .3rem 0;
 }
 
 .form-link {
@@ -231,4 +238,9 @@ html {
 .form-link:hover {
   text-decoration: none;
   color: var(--var-secondary);
+}
+
+.btn:disabled {
+  cursor: default;
+  opacity: .5;
 }
