@@ -13,17 +13,22 @@ const schema = {
  * @returns 
  */
 const validateProperty = (name, value, password = "") => {
-    console.log(name, value);
     const obj = { [name]: value };
     const currentSchema = { [name]: schema[name] };
     const { error } = Joi.validate(obj, currentSchema);
 
-    if (name === 'confirmPassword') {
+    console.log(name, value);
+    if (name === "password" && error !== null) {
+        return error.details[0].message
+    }
+
+    if (name === 'confirmPassword' || name === 'password') {
         if (password === value) return null;
         else {
             return 'Both passwords must match!';
         }
     }
+
     return error ? error.details[0].message : null;
 }
 
