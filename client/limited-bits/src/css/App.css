@@ -215,6 +215,14 @@ html {
   align-items: center;
 }
 
+.form-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem 2rem;
+  border-radius: 0.5rem;
+  background-color: var(--var-background-light);
+}
+
 .form-header {
   font-size: 1.8rem;
   font-weight: 700;

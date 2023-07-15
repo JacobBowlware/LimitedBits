@@ -51,12 +51,12 @@ const SignUp = () => {
 
     return (
         <>
-            <div className="section-container login-container">
-                <div className="login-card">
-                    <h1 className="login-card__header form-header">
+            <div className="section-container section-container-tall">
+                <div className="form-card">
+                    <h1 className=" form-header">
                         Sign Up for LimitedBits
                     </h1>
-                    <form className="form login-card__form" onSubmit={(e) => handleSubmit(e)}>
+                    <form className="form" onSubmit={(e) => handleSubmit(e)}>
                         {emailError && <p className="form-error">{emailError}</p>}
                         <input type="email" id="email" className="form-input"
                             placeholder="Email" onChange={(e) => handleEmailChange(e)} />

@@ -11,8 +11,6 @@ import './css/components/Footer.css';
 import './css/components/ValueCard.css';
 import './css/components/FeedCard.css';
 import './css/components/ReviewCard.css';
-import './css/SignUp.css';
-import './css/Login.css';
 import './css/authPages/AuthHome.css';
 
 // Pages
