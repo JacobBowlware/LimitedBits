@@ -23,6 +23,8 @@ import SignUp from './pages/SignUp';
 import Header from './components/common/Header'
 import Footer from './components/common/Footer'
 import ScrollToTop from './components/ScrollToTop';
+import ProtectedRoutes from './components/ProtectedRoutes';
+import AuthHome from './pages/authPages/AuthHome';
 
 function App() {
   const Root = () => {
@@ -37,6 +39,9 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/auth-home" element={<AuthHome />} />
+        </Route>
         <Route index element={<Home />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
