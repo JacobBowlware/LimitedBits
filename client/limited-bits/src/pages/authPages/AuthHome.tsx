@@ -44,130 +44,110 @@ const feedBits = [
     ],
     [
         {
-            id: 1,
-            body: "PAGE 2",
-            username: "Jacob",
-            icon: faUser
+            body: "Discovered the power of meditation. It has improved my focus and reduced stress.",
+            username: "Mia",
+            icon: faUser,
         },
         {
-            id: 2,
-            body: "Believe in yourself!",
-            username: "Yameli",
-            icon: faUserSecret
+            body: "Took a risk and pursued a passion project. Passion fuels determination and creativity.",
+            username: "Lucas",
+            icon: faUserSecret,
         },
         {
-            id: 3,
-            body: "'Better one bad general than two good ones.' - Napoleon Bonaparte",
-            username: "Grito",
-            icon: faUserTie
+            body: "Learned to embrace failure as a stepping stone towards success. Failure is a part of growth.",
+            username: "Sophie",
+            icon: faUserTie,
         },
         {
-            id: 2,
-            body: "Believe in yourself!",
-            username: "Yameli",
-            icon: faUserSecret
+            body: "Explored a new skill and found joy in the learning process. Learning is a lifelong journey.",
+            username: "Benjamin",
+            icon: faUser,
         },
         {
-            id: 3,
-            body: "'Better one bad general than two good ones.' - Napoleon Bonaparte",
-            username: "Grito",
-            icon: faUserTie
+            body: "Practiced mindfulness to stay present. Being present brings more joy to everyday moments.",
+            username: "Evelyn",
+            icon: faUserSecret,
         },
     ],
     [
         {
-            id: 1,
-            body: "PAGE 3",
-            username: "Jacob",
-            icon: faUser
+            body: "Learned a valuable lesson about perseverance today. It's all about taking small steps towards your goals.",
+            username: "Alice",
+            icon: faUser,
         },
         {
-            id: 2,
-            body: "Believe in yourself!",
-            username: "Yameli",
-            icon: faUserSecret
+            body: "Discovered the power of positive affirmations. They can truly shift your mindset!",
+            username: "John",
+            icon: faUserSecret,
         },
         {
-            id: 3,
-            body: "'Better one bad general than two good ones.' - Napoleon Bonaparte",
-            username: "Grito",
-            icon: faUserTie
+            body: "Read a fantastic book on personal finance. Saving money is the first step to financial freedom.",
+            username: "Emily",
+            icon: faUserTie,
         },
         {
-            id: 2,
-            body: "Believe in yourself!",
-            username: "Yameli",
-            icon: faUserSecret
+            body: "Took a leap of faith and started my own side project. Excited about the possibilities!",
+            username: "Michael",
+            icon: faUser,
         },
         {
-            id: 3,
-            body: "'Better one bad general than two good ones.' - Napoleon Bonaparte",
-            username: "Grito",
-            icon: faUserTie
+            body: "Embracing failure as a stepping stone towards success. Failure is a part of the journey.",
+            username: "Sophia",
+            icon: faUserSecret,
         },
     ],
     [
         {
-            id: 1,
-            body: "PAGE 4",
-            username: "Jacob",
-            icon: faUser
+            body: "Learned the importance of time management. Scheduling tasks makes me more productive.",
+            username: "Eva",
+            icon: faUser,
         },
         {
-            id: 2,
-            body: "Believe in yourself!",
-            username: "Yameli",
-            icon: faUserSecret
+            body: "Discovered a new hobby that brings me joy. It's never too late to try something new!",
+            username: "David",
+            icon: faUserSecret,
         },
         {
-            id: 3,
-            body: "'Better one bad general than two good ones.' - Napoleon Bonaparte",
-            username: "Grito",
-            icon: faUserTie
+            body: "Attended a life-changing seminar. Surrounding yourself with motivated individuals is inspiring.",
+            username: "Olivia",
+            icon: faUserTie,
         },
         {
-            id: 2,
-            body: "Believe in yourself!",
-            username: "Yameli",
-            icon: faUserSecret
+            body: "Decided to embrace a growth mindset. Continuous learning leads to personal growth.",
+            username: "Daniel",
+            icon: faUser,
         },
         {
-            id: 3,
-            body: "'Better one bad general than two good ones.' - Napoleon Bonaparte",
-            username: "Grito",
-            icon: faUserTie
+            body: "Overcame a fear by taking small steps. Courage is built one step at a time.",
+            username: "Isabella",
+            icon: faUserSecret,
         },
     ],
     [
         {
-            id: 1,
-            body: "PAGE 5",
-            username: "Jacob",
-            icon: faUser
+            body: "Practiced gratitude daily. It has improved my overall happiness and well-being.",
+            username: "Noah",
+            icon: faUser,
         },
         {
-            id: 2,
-            body: "Believe in yourself!",
-            username: "Yameli",
-            icon: faUserSecret
+            body: "Learned the value of self-compassion. Being kind to oneself leads to greater resilience.",
+            username: "Ava",
+            icon: faUserSecret,
         },
         {
-            id: 3,
-            body: "'Better one bad general than two good ones.' - Napoleon Bonaparte",
-            username: "Grito",
-            icon: faUserTie
+            body: "Started a journaling practice. Reflecting on my thoughts helps me gain clarity.",
+            username: "James",
+            icon: faUserTie,
         },
         {
-            id: 2,
-            body: "Believe in yourself!",
-            username: "Yameli",
-            icon: faUserSecret
+            body: "Stepped outside my comfort zone and met new people. Networking can lead to exciting opportunities.",
+            username: "Emma",
+            icon: faUser,
         },
         {
-            id: 3,
-            body: "'Better one bad general than two good ones.' - Napoleon Bonaparte",
-            username: "Grito",
-            icon: faUserTie
+            body: "Embraced a minimalist lifestyle. Simplifying my life has brought a sense of freedom.",
+            username: "Liam",
+            icon: faUserSecret,
         },
     ]
 ]
