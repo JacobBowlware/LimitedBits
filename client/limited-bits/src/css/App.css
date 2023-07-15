@@ -181,6 +181,22 @@ html {
   opacity: .8;
 }
 
+.link-null {
+  opacity: 0.5 !important;
+  cursor: default !important;
+}
+
+.link {
+  color: var(--var-secondary);
+  transition: all .3s;
+}
+
+.link:hover {
+  color: var(--var-secondary);
+  opacity: .8;
+  text-decoration: none;
+}
+
 @media screen and (min-width: 1024px) {
   .btn {
     font-size: 1.2rem;

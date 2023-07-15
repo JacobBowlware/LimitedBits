@@ -24,4 +24,11 @@
     text-align: left;
     width: 100%;
     color: var(--var-text);
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .home-review-card__p {
+        font-size: 1.1rem;
+    }
 }

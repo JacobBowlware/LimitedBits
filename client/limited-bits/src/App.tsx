@@ -13,6 +13,7 @@ import './css/components/FeedCard.css';
 import './css/components/ReviewCard.css';
 import './css/SignUp.css';
 import './css/Login.css';
+import './css/authPages/AuthHome.css';
 
 // Pages
 import Home from './pages/Home';

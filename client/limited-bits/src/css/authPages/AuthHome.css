@@ -1,0 +1,75 @@
+.auth-home-feed {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .5rem;
+    width: 100%;
+}
+
+.auth-home-header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 1rem 0;
+}
+
+.auth-home-header-icons {
+    display: flex;
+}
+
+.auth-home-header-icons__icon {
+    color: var(--var-primary);
+    margin-left: .8rem;
+    font-size: 2.2rem;
+    transition: all .3s;
+}
+
+.auth-home-header-icons__icon:hover {
+    opacity: 0.8;
+}
+
+.auth-home-header-btn {
+    font-size: 1.1rem;
+}
+
+
+/* Feed */
+.auth-home-feed-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.auth-home-feed-footer__icon {
+    font-size: 1.2rem;
+    color: var(--var-secondary);
+    cursor: pointer;
+}
+
+.auth-home-feed-footer-nav {
+    font-weight: 500;
+}
+
+.auth-home-feed-footer-nav__number {
+    margin: 0 .2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--var-secondary);
+}
+
+.auth-home-feed-footer-nav__number:focus {
+    outline: none;
+}
+
+@media screen and (min-width: 768px) {
+    .auth-home-feed-footer-nav__number {
+        font-size: 1.1rem;
+    }
+
+    .auth-home-feed-footer__icon {
+        font-size: 1.3rem;
+    }
+}
