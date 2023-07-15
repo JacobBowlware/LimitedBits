@@ -1,3 +1,8 @@
+.navbar-container {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+}
+
 .navbar {
     width: 100%;
     max-width: 1200px;

@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Header = () => {
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
     return (
-        <div className="section-container mt-1 pt-2 mb-0">
+        <div className="section-container  navbar-container">
             <nav className="navbar navbar-expand-lg">
                 <Link className="navbar-brand" to="/">
                     <img src={LimitedBitsLogo} alt="LimitedBits Logo" className="navbar-brand__img" />

@@ -1,6 +1,6 @@
 .home-hero {
     margin-bottom: 0;
-    padding-top: 3rem;
+    padding-top: 5rem;
 }
 
 .home-hero__header {
@@ -36,6 +36,10 @@
 
     .home-hero__btn {
         width: auto;
+    }
+
+    .home-hero {
+        padding-top: 7rem;
     }
 }
 

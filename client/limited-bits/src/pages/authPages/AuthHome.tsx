@@ -204,7 +204,7 @@ const AuthHome = () => {
 
     return (
         <>
-            <div className="section-container section-container-light auth-home">
+            <div className="section-container section-container-light section-container-tall">
                 <div className="section-container__item ">
                     <div className="auth-home-header-container">
                         <h1 className="section-container__header text-highlight">
@@ -212,6 +212,7 @@ const AuthHome = () => {
                         </h1>
                         <div className="auth-home-header-icons">
                             <Link to="/" className="btn auth-home-header-btn">
+
                                 Create Bit
                             </Link>
                         </div>
