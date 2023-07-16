@@ -13,22 +13,27 @@ import './css/components/ValueCard.css';
 import './css/components/FeedCard.css';
 import './css/components/ReviewCard.css';
 import './css/authPages/AuthHome.css';
+import './css/components/PopupForm.css'
 
 // Pages
 import Home from './pages/Home';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 
+// Auth Pages
+import AuthHome from './pages/authPages/AuthHome';
+import Profile from './pages/authPages/Profile';
+import MyBits from './pages/authPages/MyBits';
+
 // Components
 import Header from './components/common/Header'
 import Footer from './components/common/Footer'
 import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoutes from './components/ProtectedRoutes';
-import AuthHome from './pages/authPages/AuthHome';
 
 /*
  TODO:
- - Conditionally change header for authed users.
+ - Conditionally change header for authed users - DONE
  - Implement the 'Create Bit' popup form on button click.
  - Implement Profile page.
  - Implement 'My Bits' page.
@@ -63,6 +68,8 @@ function App() {
       <Route path="/" element={<Root />}>
         <Route element={<ProtectedRoutes />}>
           <Route path="/auth-home" element={<AuthHome />} />
+          <Route path="/my-bits" element={<MyBits />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
         <Route index element={<Home />} />
         <Route path="/sign-up" element={<SignUp />} />

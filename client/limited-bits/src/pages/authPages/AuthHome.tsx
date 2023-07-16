@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import PopupForm from "../../components/PopupForm";
 
 // Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -31,14 +32,14 @@ const feedBits = [
         },
         {
             id: 2,
-            body: "Believe in yourself!",
-            username: "Yameli",
+            body: "Never let your emotions overpower your intelligence.",
+            username: "Johnathan",
             icon: faUserSecret
         },
         {
             id: 3,
-            body: "'Better one bad general than two good ones.' - Napoleon Bonaparte",
-            username: "Grito",
+            body: "Apples are delicious.",
+            username: "Ted",
             icon: faUserTie
         },
     ],
@@ -154,7 +155,7 @@ const feedBits = [
 
 const AuthHome = () => {
     const feedLength = 5;
-    const [feedIndex, setFeedIndex] = useState(0);
+    const [feedIndex, setFeedIndex] = useState<number>(0);
 
     useEffect(() => {
         // Initially the 0 index number should be highlighted, with the left chevron disabled as well.
@@ -165,11 +166,7 @@ const AuthHome = () => {
         feedNumBtns[0].classList.add("link-null");
     }, []);
 
-    /**
-     * Changes feed page index to the given index, then updates the page routing 
-     * buttons accordingly - mostly style changes.
-     * @param index The feed page index to change to
-     */
+    // Handles all feed index changes & updates styling accordingly.
     const handleFeedIndexChange = (index: number) => {
         setFeedIndex(index);
 
@@ -193,19 +190,22 @@ const AuthHome = () => {
 
     return (
         <>
-            <div className="section-container section-container-light section-container-tall">
-                <div className="section-container__item ">
+            <div className="section-container section-container-light section-container-tall ">
+                <div id="overlay"></div>
+                <div className="section-container__item">
                     <div className="auth-home-header-container">
-                        <h1 className="section-container__header text-highlight">
-                            LimitedBits
+                        <h1 className="section-container__header">
+                            <span className="text-highlight">Todays</span> Bits
                         </h1>
                         <div className="auth-home-header-icons">
-                            <Link to="/" className="btn auth-home-header-btn">
-
-                                Create Bit
-                            </Link>
+                            <div className="section-container__item popup-center">
+                                <button id="show-popup" className="btn btn-primary">
+                                    Post Bit
+                                </button>
+                            </div>
                         </div>
                     </div>
+                    <PopupForm />
                     <div className="auth-home-feed">
                         {
                             feedBits[feedIndex].map((data, key) => {

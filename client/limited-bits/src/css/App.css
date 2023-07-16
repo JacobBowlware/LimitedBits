@@ -114,6 +114,7 @@ html {
   }
 }
 
+
 @media screen and (min-width: 1440px) {
   .section-container {
     padding: 6rem 7rem;
@@ -138,6 +139,10 @@ html {
 .text-highlight {
   color: var(--var-secondary);
   font-weight: 700;
+}
+
+.text-dark {
+  color: var(--var-text);
 }
 
 .reverse-flow {
@@ -166,6 +171,7 @@ html {
 }
 
 /* Buttons & Links */
+
 .btn {
   background-color: var(--var-secondary);
   color: var(--var-primary);
@@ -183,6 +189,11 @@ html {
 .btn:hover {
   color: var(--var-primary);
   opacity: .8;
+}
+
+.btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .link-null {
@@ -213,6 +224,7 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .form-card {
@@ -235,6 +247,7 @@ html {
   width: 100%;
   margin-bottom: .3rem;
   padding: .5rem;
+  border: 1px solid var(--var-background-light);
 }
 
 .form-input:focus {
