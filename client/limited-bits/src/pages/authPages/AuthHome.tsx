@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // Font Awesome Icons
@@ -155,6 +155,15 @@ const feedBits = [
 const AuthHome = () => {
     const feedLength = 5;
     const [feedIndex, setFeedIndex] = useState(0);
+
+    useEffect(() => {
+        // Initially the 0 index number should be highlighted, with the left chevron disabled as well.
+        const leftFeedBtn = document.getElementById("feed-left-chevron");
+        const feedNumBtns = document.getElementsByClassName("auth-home-feed-footer-nav__number");
+
+        leftFeedBtn?.classList.add("link-null");
+        feedNumBtns[0].classList.add("link-null");
+    }, []);
 
     /**
      * Changes feed page index to the given index, then updates the page routing 

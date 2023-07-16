@@ -2,6 +2,7 @@ import {
   createBrowserRouter, createRoutesFromElements,
   RouterProvider, Route, Outlet
 } from 'react-router-dom';
+import { useState } from 'react';
 
 // CSS
 import './css/App.css';
@@ -25,10 +26,32 @@ import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import AuthHome from './pages/authPages/AuthHome';
 
+/*
+ TODO:
+ - Conditionally change header for authed users.
+ - Implement the 'Create Bit' popup form on button click.
+ - Implement Profile page.
+ - Implement 'My Bits' page.
+ - Start Backend development.
+*/
+export interface User {
+  id: number,
+  name: string,
+  icon: string,
+  email: string,
+}
+
 function App() {
+  const [user, setUser] = useState<User | null>({
+    id: 1,
+    name: "John Doe",
+    icon: "faUserTie",
+    email: "johndoe@gmail.com"
+  });
+
   const Root = () => {
     return <>
-      <Header />
+      <Header user={user} />
       <ScrollToTop />
       <Outlet />
       <Footer />
