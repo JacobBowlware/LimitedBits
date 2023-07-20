@@ -1,16 +1,15 @@
 
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import PopupForm from "../../components/PopupForm";
 
 // Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight, faPlusSquare, faUser, faUserSecret, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight, faUser, faUserSecret, faUserTie } from "@fortawesome/free-solid-svg-icons";
 
 // Components
-import FeedCard from "../../components/common/FeedCard";
+import FeedList, { FeedCardProps } from "../../components/FeedList";
 
-const feedBits = [
+const feedBits: FeedCardProps[][] = [
     [
         {
             id: 1,
@@ -154,40 +153,6 @@ const feedBits = [
 ]
 
 const AuthHome = () => {
-    const feedLength = 5;
-    const [feedIndex, setFeedIndex] = useState<number>(0);
-
-    useEffect(() => {
-        // Initially the 0 index number should be highlighted, with the left chevron disabled as well.
-        const leftFeedBtn = document.getElementById("feed-left-chevron");
-        const feedNumBtns = document.getElementsByClassName("auth-home-feed-footer-nav__number");
-
-        leftFeedBtn?.classList.add("link-null");
-        feedNumBtns[0].classList.add("link-null");
-    }, []);
-
-    // Handles all feed index changes & updates styling accordingly.
-    const handleFeedIndexChange = (index: number) => {
-        setFeedIndex(index);
-
-        const leftFeedBtn = document.getElementById("feed-left-chevron");
-        const rightFeedBtn = document.getElementById("feed-right-chevron");
-
-        leftFeedBtn?.classList.remove("link-null");
-        rightFeedBtn?.classList.remove("link-null");
-
-        if (index === 0)
-            leftFeedBtn?.classList.add("link-null");
-        else if (index === feedLength - 1)
-            rightFeedBtn?.classList.add("link-null");
-
-        const feedNumBtns = document.getElementsByClassName("auth-home-feed-footer-nav__number");
-        for (let i = 0; i < feedNumBtns.length; i++)
-            feedNumBtns[i].classList.remove("link-null");
-
-        feedNumBtns[index].classList.add("link-null");
-    }
-
     return (
         <>
             <div className="section-container section-container-light section-container-tall ">
@@ -206,43 +171,7 @@ const AuthHome = () => {
                         </div>
                     </div>
                     <PopupForm />
-                    <div className="auth-home-feed">
-                        {
-                            feedBits[feedIndex].map((data, key) => {
-                                if (key >= feedLength) {
-                                    return;
-                                }
-
-                                return (
-                                    <FeedCard key={key} icon={data.icon} body={data.body} username={data.username} />
-                                )
-                            })}
-                        <div className="auth-home-feed-footer">
-                            <FontAwesomeIcon icon={faChevronLeft}
-                                id="feed-left-chevron"
-                                className="link auth-home-feed-footer__icon" onClick={() => {
-                                    if (feedIndex > 0)
-                                        handleFeedIndexChange(feedIndex - 1);
-                                }} />
-                            <div className="auth-home-feed-footer-nav">
-                                {
-                                    feedBits.map((data, key) => {
-                                        return (
-                                            <button onClick={() => handleFeedIndexChange(key)} className="link auth-home-feed-footer-nav__number">
-                                                {key + 1}
-                                            </button>
-                                        )
-                                    })
-                                }
-                            </div>
-                            <FontAwesomeIcon icon={faChevronRight}
-                                id="feed-right-chevron"
-                                className="link auth-home-feed-footer__icon" onClick={() => {
-                                    if (feedIndex < 4)
-                                        handleFeedIndexChange(feedIndex + 1);
-                                }} />
-                        </div>
-                    </div>
+                    <FeedList feedItems={feedBits} />
                 </div>
             </div>
         </>

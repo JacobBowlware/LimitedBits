@@ -34,7 +34,8 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 /*
  TODO:
  - Conditionally change header for authed users - DONE
- - Implement the 'Create Bit' popup form on button click.
+ - Implement the 'Create Bit' popup form on button click - DONE
+ - Add 'Username' field to Sign Up page.
  - Implement Profile page.
  - Implement 'My Bits' page.
  - Start Backend development.

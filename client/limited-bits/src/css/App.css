@@ -194,6 +194,7 @@ html {
 .btn:focus {
   outline: none !important;
   box-shadow: none !important;
+  background-image: linear-gradient(to right, var(--var-secondary), #9E1218);
 }
 
 .link-null {
