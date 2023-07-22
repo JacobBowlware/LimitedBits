@@ -35,10 +35,12 @@ import ProtectedRoutes from './components/ProtectedRoutes';
  TODO:
  - Conditionally change header for authed users - DONE
  - Implement the 'Create Bit' popup form on button click - DONE
+ - Conditionally move authed users from login/create-account pages to AuthHome page - DONE
  - Add 'Username' field to Sign Up page.
  - Implement Profile page.
  - Implement 'My Bits' page.
  - Start Backend development.
+ - Improve security by authing user with JWT (JSON Web Token's).
 */
 export interface User {
   id: number,
@@ -67,14 +69,16 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
-        <Route element={<ProtectedRoutes />}>
+        <Route element={<ProtectedRoutes user={user} noAuthedUsers={false} />}>
           <Route path="/auth-home" element={<AuthHome />} />
           <Route path="/my-bits" element={<MyBits />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
+        <Route element={<ProtectedRoutes user={user} noAuthedUsers={true} />}>
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+        </Route>
         <Route index element={<Home />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
         <Route path="*" element={<Home />} />
       </Route>
     )

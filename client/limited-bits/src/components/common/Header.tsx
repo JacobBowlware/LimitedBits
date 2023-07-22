@@ -52,7 +52,7 @@ const Header = ({ user }: { user: User | null }) => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <a className="nav-item nav-link active" href="/#features">Features<span className="sr-only">(current)</span></a>
+                        <a className="nav-item nav-link" href="/#features">Features<span className="sr-only">(current)</span></a>
                         <a className="nav-item nav-link" href="/#reviews">Reviews</a>
                         <Link className="nav-item nav-link" to="/login">Log In</Link>
                         <Link className="nav-item nav-link" to="/sign-up">Sign Up</Link>
