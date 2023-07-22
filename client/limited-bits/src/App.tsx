@@ -39,6 +39,8 @@ import ProtectedRoutes from './components/ProtectedRoutes';
  - Add 'Username' field to Sign Up page.
  - Implement Profile page.
  - Implement 'My Bits' page.
+ - Add dates-posted to feed items.
+ - Users 'My Bits' should show their bits without their username on each one, and should be able to delete them.
  - Start Backend development.
  - Improve security by authing user with JWT (JSON Web Token's).
 */
@@ -50,12 +52,14 @@ export interface User {
 }
 
 function App() {
-  const [user, setUser] = useState<User | null>({
+  const goodUser: User = {
     id: 1,
     name: "John Doe",
     icon: "faUserTie",
     email: "johndoe@gmail.com"
-  });
+  }
+
+  const [user, setUser] = useState<User | null>(null);
 
   const Root = () => {
     return <>

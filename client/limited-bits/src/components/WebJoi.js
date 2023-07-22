@@ -1,6 +1,7 @@
 import Joi from 'joi-browser';
 
 const schema = {
+    username: Joi.string().required().min(3).max(30).label('Username'),
     email: Joi.string().required().email().label('Email'),
     password: Joi.string().required().min(8).label('Password'),
     confirmPassword: Joi.ref('password'),
@@ -17,7 +18,6 @@ const validateProperty = (name, value, password = "") => {
     const currentSchema = { [name]: schema[name] };
     const { error } = Joi.validate(obj, currentSchema);
 
-    console.log(name, value);
     if (name === "password" && error !== null) {
         return error.details[0].message
     }
