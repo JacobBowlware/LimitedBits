@@ -17,9 +17,10 @@ interface FeedCardProps {
 
 interface FeedListProps {
     feedItems: FeedCardProps[][];
+    isMyBits?: boolean;
 }
 
-const FeedList = ({ feedItems }: FeedListProps) => {
+const FeedList = ({ feedItems, isMyBits }: FeedListProps) => {
     const [feedIndex, setFeedIndex] = useState<number>(0);
     const [feedLength, setFeedLength] = useState<number>(feedItems.length);
 
@@ -63,7 +64,8 @@ const FeedList = ({ feedItems }: FeedListProps) => {
                     }
 
                     return (
-                        <FeedCard key={key} icon={data.icon} body={data.body} username={data.username} />
+                        isMyBits ? <FeedCard key={key} icon={data.icon} body={data.body} isMyBits={isMyBits} /> :
+                            <FeedCard key={key} icon={data.icon} body={data.body} username={data.username} />
                     )
                 })}
             <div className="auth-home-feed-footer">

@@ -43,25 +43,25 @@ const userPosts: FeedCardProps[][] = [
         },
         {
             id: 7,
-            body: "Believe in yourself!",
+            body: "Imagine losing to a bot",
             username: "Yameli",
             icon: faUserSecret
         },
         {
             id: 8,
-            body: "'Better one bad general than two good ones.' - Napoleon Bonaparte",
+            body: "Treat your body with respect.",
             username: "Grito",
             icon: faUserTie
         },
         {
             id: 9,
-            body: "Never let your emotions overpower your intelligence.",
+            body: "Always be yourself!",
             username: "Johnathan",
             icon: faUserSecret
         },
         {
             id: 10,
-            body: "Apples are delicious.",
+            body: "Spend your time wisely.",
             username: "Ted",
             icon: faUserTie
         },
@@ -77,7 +77,7 @@ const MyBits = () => {
                         <span className="text-highlight">My</span> Bits
                     </h1>
                 </div>
-                <FeedList feedItems={userPosts} />
+                <FeedList feedItems={userPosts} isMyBits={true} />
             </div>
         </div>
     );

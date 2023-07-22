@@ -36,17 +36,16 @@ import ProtectedRoutes from './components/ProtectedRoutes';
  - Conditionally change header for authed users - DONE
  - Implement the 'Create Bit' popup form on button click - DONE
  - Conditionally move authed users from login/create-account pages to AuthHome page - DONE
- - Add 'Username' field to Sign Up page.
+ - Add 'Username' field to Sign Up page - DONE
+ - Users 'My Bits' should show their bits without their username on each one, and should be able to delete them.
  - Implement Profile page.
  - Implement 'My Bits' page.
- - Add dates-posted to feed items.
- - Users 'My Bits' should show their bits without their username on each one, and should be able to delete them.
  - Start Backend development.
  - Improve security by authing user with JWT (JSON Web Token's).
 */
 export interface User {
   id: number,
-  name: string,
+  username: string,
   icon: string,
   email: string,
 }
@@ -54,12 +53,12 @@ export interface User {
 function App() {
   const goodUser: User = {
     id: 1,
-    name: "John Doe",
+    username: "JohnDoe",
     icon: "faUserTie",
     email: "johndoe@gmail.com"
   }
 
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(goodUser);
 
   const Root = () => {
     return <>

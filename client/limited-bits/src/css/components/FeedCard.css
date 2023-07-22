@@ -25,11 +25,30 @@
     font-weight: 300;
     margin: 0.3rem 0;
     font-size: 1.1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .home-feed-card__header-icon {
     font-size: 1.4rem;
     margin: 0.3rem .5rem .3rem 0;
+}
+
+.home-feed-card__header-delete-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .6rem;
+    border-radius: 5px;
+}
+
+.home-feed-card__header-delete-icon {
+    font-size: 1.2rem;
+    color: var(--var-text);
+    cursor: pointer;
+    padding: 0;
 }
 
 @media screen and (min-width: 768px) {
