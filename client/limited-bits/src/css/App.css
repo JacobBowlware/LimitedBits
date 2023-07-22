@@ -236,6 +236,10 @@ html {
   background-color: var(--var-background-light);
 }
 
+.form-card__item__text {
+  font-size: 1.2rem;
+}
+
 .form-header {
   font-size: 1.8rem;
   font-weight: 700;

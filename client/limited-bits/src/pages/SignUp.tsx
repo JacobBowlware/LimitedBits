@@ -21,19 +21,19 @@ const SignUp = () => {
     }
 
     const handleInputChange = (inputField: string, e: React.ChangeEvent<HTMLInputElement>) => {
-        if (inputField == "username") {
+        if (inputField === "username") {
             setUsername(e.target.value);
 
             const error = validateProperty("username", e.target.value);
             setUsernameError(error);
         }
-        else if (inputField == "email") {
+        else if (inputField === "email") {
             setEmail(e.target.value);
 
             const error = validateProperty("email", e.target.value);
             setEmailError(error);
         }
-        else if (inputField == "password") {
+        else if (inputField === "password") {
             setPassword(e.target.value);
 
             const error = validateProperty("password", e.target.value, confirmPassword);
@@ -50,7 +50,7 @@ const SignUp = () => {
                 setPasswordError(error);
             }
         }
-        else if (inputField == "repeatPassword") {
+        else if (inputField === "repeatPassword") {
             setConfirmPassword(e.target.value);
 
             const error = validateProperty("confirmPassword", e.target.value, password);

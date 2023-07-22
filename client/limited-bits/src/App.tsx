@@ -37,11 +37,20 @@ import ProtectedRoutes from './components/ProtectedRoutes';
  - Implement the 'Create Bit' popup form on button click - DONE
  - Conditionally move authed users from login/create-account pages to AuthHome page - DONE
  - Add 'Username' field to Sign Up page - DONE
- - Users 'My Bits' should show their bits without their username on each one, and should be able to delete them.
- - Implement Profile page.
- - Implement 'My Bits' page.
+ - Users 'My Bits' should show their bits without their username on each one, and should be able to delete them - DONE
+ - Implement Profile page - DONE
  - Start Backend development.
- - Improve security by authing user with JWT (JSON Web Token's).
+*/
+
+/* TODO AFTER BACKEND DEVELOPMENT:
+  - Give users a JWT token upon login or sign up.
+  - Inside ProtectedRoutes, check if the user is authed by checking if their JWT token is valid.
+  - Fetch the users actual data from the database using their JWT token - (store the users data in the 'user' state).
+  - When the user logs out, remove their JWT token from local storage.
+  - Change 'Create Bit' functionality to actually create a bit in the database.
+  - Change 'Delete Bit' functionality to actually delete a bit in the database - (Inside MyBits page).
+  - Populate Profile page with accurate data.
+  - Render real time feed of bits inside the database for users.
 */
 export interface User {
   id: number,
@@ -65,7 +74,7 @@ function App() {
       <Header user={user} />
       <ScrollToTop />
       <Outlet />
-      <Footer />
+      <Footer user={user} />
     </>
   }
 
@@ -75,7 +84,7 @@ function App() {
         <Route element={<ProtectedRoutes user={user} noAuthedUsers={false} />}>
           <Route path="/auth-home" element={<AuthHome />} />
           <Route path="/my-bits" element={<MyBits />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile user={user} />} />
         </Route>
         <Route element={<ProtectedRoutes user={user} noAuthedUsers={true} />}>
           <Route path="/sign-up" element={<SignUp />} />
