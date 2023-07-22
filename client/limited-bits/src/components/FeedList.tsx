@@ -72,7 +72,7 @@ const FeedList = ({ feedItems, isMyBits }: FeedListProps) => {
                 <FontAwesomeIcon icon={faChevronLeft}
                     id="feed-left-chevron"
                     className="link auth-home-feed-footer__icon" onClick={() => {
-                        if (feedIndex > 0)
+                        if (feedIndex > 0 && !document.getElementById("feed-left-chevron")?.classList.contains("link-null"))
                             handleFeedIndexChange(feedIndex - 1);
                     }} />
                 <div className="auth-home-feed-footer-nav">
@@ -89,7 +89,7 @@ const FeedList = ({ feedItems, isMyBits }: FeedListProps) => {
                 <FontAwesomeIcon icon={faChevronRight}
                     id="feed-right-chevron"
                     className="link auth-home-feed-footer__icon" onClick={() => {
-                        if (feedIndex < 4)
+                        if (feedIndex < 4 && !document.getElementById("feed-right-chevron")?.classList.contains("link-null"))
                             handleFeedIndexChange(feedIndex + 1);
                     }} />
             </div>
