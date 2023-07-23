@@ -1,4 +1,3 @@
-const user = 0;
 const _ = require('lodash');
 const bcrypt = require('bcrypt');
 const express = require('express');
@@ -10,7 +9,6 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-
     // Validate the request body
     const { error } = validateUser(req.body);
     if (error) return res.status(400).send(error.details[0].message);
@@ -28,11 +26,10 @@ router.post('/', async (req, res) => {
     await user.save();
 
     // Generate an auth token for the newly created user
-    // const token = user.generateAuthToken();
+    const token = user.generateAuthToken();
 
     // Return the token and the user in the response
-    // res.header('x-auth-token', token).send(_.pick(user, ['_id', 'username', 'email']));
-    res.send(_.pick(user, ['_id', 'username', 'email']));
+    res.header('x-auth-token', token).send(_.pick(user, ['_id', 'username', 'email']));
 });
 
 

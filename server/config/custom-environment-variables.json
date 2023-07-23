@@ -1,1 +1,3 @@
-{}
+{
+    "jwtPrivateKey": "limitedbits_jwtPrivateKey"
+}
