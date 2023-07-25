@@ -1,3 +1,4 @@
+const winston = require('winston');
 const express = require('express');
 const app = express();
 
@@ -12,12 +13,21 @@ middleware function that will be called before the route handler - DONE
 */
 
 // Call our startup functions
+require('./startup/logging')();
 require('./startup/routes')(app);
 require('./startup/db')();
 require('./startup/config')();
 
+app.use((err, req, res, next) => {
+    // Log the error using Winston
+    winston.error(err.message, err);
+
+    // Respond to the client with an appropriate error message
+    res.status(500).send('Something failed.');
+});
+
 // Start the server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-    console.log("Server is running on port " + port + "...");
+    winston.info("Server is running on port " + port + "...");
 })
