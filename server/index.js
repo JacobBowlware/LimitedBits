@@ -3,10 +3,11 @@ const app = express();
 
 /*
 TODO:
-- Implement the JWT authentication - send the token in the header upon login or registration.
+- Implement the JWT authentication - send the token in the header upon login or registration - DONE
+- Implement Login API - DONE
 - Implement the authorization - check if the user is authorized to perform certain actions - This will be a 
 middleware function that will be called before the route handler.
-- Implement Winston for propper error logging.
+- Implement Winston for propper error logging.f
 - Implement the error middleware function.
 */
 
