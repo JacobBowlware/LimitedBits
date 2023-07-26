@@ -8,8 +8,13 @@ TODO:
 - Implement Login API - DONE
 - Implement the authorization - check if the user is authorized to perform certain actions - This will be a 
 middleware function that will be called before the route handler - DONE
-- Implement Winston for propper error logging.
-- Implement the error middleware function.
+- Implement Winston for propper error logging - DONE
+- Implement the error middleware function - DONE
+- Implement routes for users Bit's:
+    * Creating Bits (Posting a new Bit) - 
+    * Deleting Bits -
+    * Retrieving all of users Bits -
+    * Retrieving last 50 posted Bits for Feed -
 */
 
 // Call our startup functions
