@@ -11,10 +11,10 @@ middleware function that will be called before the route handler - DONE
 - Implement Winston for propper error logging - DONE
 - Implement the error middleware function - DONE
 - Implement routes for users Bit's:
-    * Creating Bits (Posting a new Bit) - 
-    * Deleting Bits -
-    * Retrieving all of users Bits -
-    * Retrieving last 50 posted Bits for Feed -
+    * Creating Bits (Posting a new Bit) - DONE
+    * Deleting Bits - DONE
+    * Retrieving all of users Bits - DONE
+    * Retrieving last 50 posted Bits for Feed - DONE
 */
 
 // Call our startup functions

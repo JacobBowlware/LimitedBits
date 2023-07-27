@@ -29,6 +29,3 @@ const validatePost = (post) => {
 module.exports.Post = Post;
 module.exports.validatePost = validatePost;
 module.exports.postSchema = postSchema;
-
-
-
