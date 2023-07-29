@@ -2,7 +2,7 @@ import {
   createBrowserRouter, createRoutesFromElements,
   RouterProvider, Route, Outlet
 } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // CSS
 import './css/App.css';
@@ -43,9 +43,8 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 */
 
 /* TODO AFTER BACKEND DEVELOPMENT:
-  - Give users a JWT token upon login or sign up.
-  - Inside ProtectedRoutes, check if the user is authed by checking if their JWT token is valid.
   - Fetch the users actual data from the database using their JWT token - (store the users data in the 'user' state).
+  - Inside ProtectedRoutes, check if the user is authed by checking if their JWT token is valid.
   - When the user logs out, remove their JWT token from local storage.
   - Change 'Create Bit' functionality to actually create a bit in the database.
   - Change 'Delete Bit' functionality to actually delete a bit in the database - (Inside MyBits page).
@@ -59,6 +58,24 @@ export interface User {
   email: string,
 }
 
+const decodeJwtToken = (token: string): User | null => {
+  try {
+    const tokenParts = token.split(".");
+    const decodedToken: any = JSON.parse(atob(tokenParts[1])); // Decode the base64-encoded payload
+
+    const user: User = {
+      id: decodedToken._id,
+      username: decodedToken.username,
+      icon: decodedToken.icon,
+      email: decodedToken.email,
+    };
+
+    return user;
+  } catch (error) {
+    return null;
+  }
+}
+
 function App() {
   const goodUser: User = {
     id: 1,
@@ -68,6 +85,21 @@ function App() {
   }
 
   const [user, setUser] = useState<User | null>(goodUser);
+
+  useEffect(() => {
+    // Check if the JWT token exists in local storage
+    const jwtToken = localStorage.getItem("jwtToken");
+
+    if (jwtToken) {
+      // If the JWT token exists, decode it to get the user data
+      const decodedUser = decodeJwtToken(jwtToken);
+      setUser(decodedUser);
+    }
+  }, [])
+
+  const onLoginSuccess = (userData: User) => {
+    setUser(userData);
+  };
 
   const Root = () => {
     return <>
@@ -88,7 +120,7 @@ function App() {
         </Route>
         <Route element={<ProtectedRoutes user={user} noAuthedUsers={true} />}>
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login onLoginSuccess={onLoginSuccess} />} />
         </Route>
         <Route index element={<Home />} />
         <Route path="*" element={<Home />} />

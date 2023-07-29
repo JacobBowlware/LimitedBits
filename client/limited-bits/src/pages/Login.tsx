@@ -3,9 +3,14 @@ import { Link } from "react-router-dom";
 
 // Joi validation
 import { validateProperty } from "../components/WebJoi";
+import { User } from "../App";
 
 
-const Login = () => {
+interface LoginProps {
+    onLoginSuccess: (userData: User) => void;
+}
+
+const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
     const [email, setEmail] = useState<String>("");
     const [password, setPassword] = useState<String>("");
 
@@ -14,7 +19,36 @@ const Login = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        console.log("Login form submitted");
+        try {
+            // Send the login data to the server and get the response
+            //  const response = await login(loginData);
+            const response = {
+                headers: {
+                    'x-auth-token': 'token'
+                },
+                data: {
+                    id: 1,
+                    username: "JohnDoe",
+                    icon: "faUserTie",
+                    email: "JohnDoe@gmail.com"
+                }
+            }
+
+            // Extract the token from the response's headers
+            const token = response.headers['x-auth-token'];
+
+            // Save the token in the browser's local storage for persistent login
+            localStorage.setItem('token', token);
+
+            // Extract the user data from the response's body
+            const userData: User = response.data;
+
+            // Call the onLoginSuccess function passed from the parent component
+            onLoginSuccess(userData);
+        } catch (error) {
+            // Handle login error
+            alert(error)
+        }
     }
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {

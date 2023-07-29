@@ -17,7 +17,8 @@ const userSchema = new mongoose.Schema({
         require: true,
         minlength: 5,
         maxlength: 1024
-    }
+    },
+    icon: { type: String, default: "faUser" }
 })
 
 userSchema.methods.generateAuthToken = function () {
