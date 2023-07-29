@@ -2,15 +2,16 @@ const cors = require('cors');
 
 module.exports = (app) => {
     const allowedOrigins = ['http://localhost:3001', 'https://example.com'];
-
-    // Enable CORS with specific allowed origins
-    app.use(cors({
-        origin: function (origin, callback) {
-            if (!origin || allowedOrigins.includes(origin)) {
+    const corsOptions = {
+        origin: (origin, callback) => {
+            if (allowedOrigins.indexOf(origin) !== -1) {
                 callback(null, true);
             } else {
                 callback(new Error('Not allowed by CORS'));
             }
         }
-    }));
-}
+    };
+
+    // Enable CORS with specific allowed origins
+    app.use(cors());
+};

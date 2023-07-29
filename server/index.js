@@ -3,17 +3,12 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-/*
-TODO:
-    - Setup CORS
-*/
-
 // Call our startup functions
 require('./startup/logging')();
+require('./startup/cors')(app);
 require('./startup/routes')(app);
 require('./startup/db')();
 require('./startup/config')();
-require('./startup/cors')(app);
 
 app.use((err, req, res, next) => {
     // Log the error using Winston
