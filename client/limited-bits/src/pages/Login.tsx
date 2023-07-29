@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { validateProperty } from "../components/WebJoi";
 import { User } from "../App";
 
+// Axios
+import axios from 'axios';
 
 interface LoginProps {
     onLoginSuccess: (userData: User) => void;
@@ -16,34 +18,20 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
 
     const [emailError, setEmailError] = useState<String>("");
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         try {
-            // Send the login data to the server and get the response
-            //  const response = await login(loginData);
-            const response = {
-                headers: {
-                    'x-auth-token': 'token'
-                },
-                data: {
-                    id: 1,
-                    username: "JohnDoe",
-                    icon: "faUserTie",
-                    email: "JohnDoe@gmail.com"
-                }
+            const loginData = {
+                email: email.toLowerCase(),
+                password: password
             }
+            const response = await axios.post("http://localhost:3000/api/users/login", loginData);
 
-            // Extract the token from the response's headers
             const token = response.headers['x-auth-token'];
-
-            // Save the token in the browser's local storage for persistent login
             localStorage.setItem('token', token);
 
-            // Extract the user data from the response's body
             const userData: User = response.data;
-
-            // Call the onLoginSuccess function passed from the parent component
             onLoginSuccess(userData);
         } catch (error) {
             // Handle login error

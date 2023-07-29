@@ -31,18 +31,8 @@ import Footer from './components/common/Footer'
 import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoutes from './components/ProtectedRoutes';
 
-/*
- TODO:
- - Conditionally change header for authed users - DONE
- - Implement the 'Create Bit' popup form on button click - DONE
- - Conditionally move authed users from login/create-account pages to AuthHome page - DONE
- - Add 'Username' field to Sign Up page - DONE
- - Users 'My Bits' should show their bits without their username on each one, and should be able to delete them - DONE
- - Implement Profile page - DONE
- - Start Backend development.
-*/
-
 /* TODO AFTER BACKEND DEVELOPMENT:
+  - When user creates account or logs in, make sure to send their email as all lowercase.
   - Fetch the users actual data from the database using their JWT token - (store the users data in the 'user' state).
   - Inside ProtectedRoutes, check if the user is authed by checking if their JWT token is valid.
   - When the user logs out, remove their JWT token from local storage.
@@ -77,14 +67,7 @@ const decodeJwtToken = (token: string): User | null => {
 }
 
 function App() {
-  const goodUser: User = {
-    id: 1,
-    username: "JohnDoe",
-    icon: "faUserTie",
-    email: "johndoe@gmail.com"
-  }
-
-  const [user, setUser] = useState<User | null>(goodUser);
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     // Check if the JWT token exists in local storage
