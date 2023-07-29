@@ -35,6 +35,15 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
             onLoginSuccess(userData);
         } catch (error) {
             setEmailError("Invalid email or password.")
+
+            // Reset the email and password fields
+            setEmail("");
+            setPassword("");
+
+            const emailInput = document.getElementById("email") as HTMLInputElement;
+            const passwordInput = document.getElementById("password") as HTMLInputElement;
+            emailInput.value = "";
+            passwordInput.value = "";
         }
     }
 

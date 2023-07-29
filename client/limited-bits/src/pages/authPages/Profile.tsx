@@ -7,7 +7,8 @@ const Profile = ({ user }: { user: User | null }) => {
         return null;
 
     const handleLogout = () => {
-        // TODO: Send logout request to backend.
+        localStorage.removeItem("token");
+        window.location.href = "/";
     }
 
     return (

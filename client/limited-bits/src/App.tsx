@@ -33,13 +33,14 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 
 /* TODO AFTER BACKEND DEVELOPMENT:
   - When user creates account or logs in, make sure to send their email as all lowercase - DONE
-  - Fetch the users actual data from the database using their JWT token - (store the users data in the 'user' state).
+  - Fetch the users actual data from the database using their JWT token - (store the users data in the 'user' state) - DONE
+  - When the user logs out, remove their JWT token from local storage. - DONE
   - Inside ProtectedRoutes, check if the user is authed by checking if their JWT token is valid.
-  - When the user logs out, remove their JWT token from local storage.
   - Change 'Create Bit' functionality to actually create a bit in the database.
   - Change 'Delete Bit' functionality to actually delete a bit in the database - (Inside MyBits page).
   - Populate Profile page with accurate data.
   - Render real time feed of bits inside the database for users.
+  - Implement Loading spinner for buttons or pages.
 */
 export interface User {
   id: number,
