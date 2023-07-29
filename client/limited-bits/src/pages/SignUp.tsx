@@ -1,8 +1,19 @@
+// React
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { validateProperty } from "../components/WebJoi";
 
-const SignUp = () => {
+// Components
+import { validateProperty } from "../components/WebJoi";
+import { User } from "../App";
+
+// Axios
+import axios from "axios";
+
+interface SignupProps {
+    onLoginSuccess: (userData: User) => void;
+}
+
+const SignUp: React.FC<SignupProps> = ({ onLoginSuccess }) => {
     const [username, setUsername] = useState<String>("");
     const [email, setEmail] = useState<String>("");
     const [password, setPassword] = useState<String>("");
@@ -13,11 +24,38 @@ const SignUp = () => {
     const [passwordError, setPasswordError] = useState<String>("");
     const [confirmPasswordError, setConfirmPasswordError] = useState<String>("");
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleIconSelection = (): string => {
+        const icons = ["faUser", "faUserSecret", "faUserTie"];
+        const randomIndex = Math.floor(Math.random() * icons.length);
+        const selectedIcon = icons[randomIndex];
+
+        return selectedIcon;
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // TODO: Send form data to backend and create new user.
-        console.log("Sign up form submitted");
+        const icon = handleIconSelection();
+
+        const signupData = {
+            username: username,
+            email: email,
+            password: password,
+            icon: icon
+        }
+
+        try {
+            const response = await axios.post("http://localhost:3000/api/users/", signupData);
+
+            const token = response.headers['x-auth-token'];
+            localStorage.setItem('token', token);
+
+            const userData: User = response.data;
+            onLoginSuccess(userData);
+        }
+        catch (error) {
+            setUsernameError("Username or email already exists.");
+        }
     }
 
     const handleInputChange = (inputField: string, e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,7 +117,8 @@ const SignUp = () => {
                         <input type="password" id="repeatPassword" className="form-input"
                             placeholder="Repeat Password" onChange={(e) => handleInputChange("repeatPassword", e)} />
                         <button type="submit" className="btn form-btn"
-                            disabled={emailError || passwordError || confirmPasswordError ? true : false}
+                            disabled={emailError || passwordError || confirmPasswordError ? true : false
+                                || !email || !password || !confirmPassword || !username}
                         >Sign Up</button>
                     </form>
                     <p className="form-helper">

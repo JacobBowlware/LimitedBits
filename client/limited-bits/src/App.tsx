@@ -32,7 +32,7 @@ import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoutes from './components/ProtectedRoutes';
 
 /* TODO AFTER BACKEND DEVELOPMENT:
-  - When user creates account or logs in, make sure to send their email as all lowercase.
+  - When user creates account or logs in, make sure to send their email as all lowercase - DONE
   - Fetch the users actual data from the database using their JWT token - (store the users data in the 'user' state).
   - Inside ProtectedRoutes, check if the user is authed by checking if their JWT token is valid.
   - When the user logs out, remove their JWT token from local storage.
@@ -102,7 +102,7 @@ function App() {
           <Route path="/profile" element={<Profile user={user} />} />
         </Route>
         <Route element={<ProtectedRoutes user={user} noAuthedUsers={true} />}>
-          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/sign-up" element={<SignUp onLoginSuccess={onLoginSuccess} />} />
           <Route path="/login" element={<Login onLoginSuccess={onLoginSuccess} />} />
         </Route>
         <Route index element={<Home />} />

@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 
 // Components
-import SignUp from '../pages/SignUp';
 import AuthHome from '../pages/authPages/AuthHome';
 import { User } from '../App';
+import Home from '../pages/Home';
 
 /**
  * Route guard for protected routes.
@@ -20,7 +20,7 @@ const ProtectedRoutes = ({ user, noAuthedUsers }: { user: User | null, noAuthedU
         return user ? <AuthHome /> : <Outlet />;
     }
 
-    return user ? <Outlet /> : <SignUp />;
+    return user ? <Outlet /> : <Home />;
 }
 
 export default ProtectedRoutes;

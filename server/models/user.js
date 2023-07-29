@@ -18,7 +18,10 @@ const userSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 1024
     },
-    icon: { type: String, default: "faUser" }
+    icon: {
+        type: String,
+        default: "faUser",
+    }
 })
 
 userSchema.methods.generateAuthToken = function () {
@@ -32,7 +35,8 @@ const validateUser = (user) => {
     const schema = Joi.object({
         username: Joi.string().min(3).max(30).required(),
         email: Joi.string().min(5).max(255).required().email(),
-        password: Joi.string().min(5).max(1024).required()
+        password: Joi.string().min(5).max(1024).required(),
+        icon: Joi.string().min(3).max(30),
     })
 
     return schema.validate(user);

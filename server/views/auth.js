@@ -6,7 +6,6 @@ const router = express.Router();
 const { User } = require('../models/user');;
 
 router.post('/login', async (req, res) => {
-    console.log("LOGIN REQUEST MADE");
     const { error } = validateUser(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 

@@ -34,8 +34,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
             const userData: User = response.data;
             onLoginSuccess(userData);
         } catch (error) {
-            // Handle login error
-            alert(error)
+            setEmailError("Invalid email or password.")
         }
     }
 
@@ -61,7 +60,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
                         <input type="password" id="password" className="form-input"
                             placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                         <button type="submit" className="btn form-btn"
-                            disabled={emailError ? true : false}>Login</button>
+                            disabled={emailError ? true : false || !email || !password}>Login</button>
                     </form>
                     <p className="form-helper">
                         Don't have an account? <Link className="form-link" to="/sign-up">Sign up</Link>
