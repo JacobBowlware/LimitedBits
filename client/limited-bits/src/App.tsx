@@ -72,11 +72,10 @@ function App() {
 
   useEffect(() => {
     // Check if the JWT token exists in local storage
-    const jwtToken = localStorage.getItem("jwtToken");
+    const token = localStorage.getItem("token");
 
-    if (jwtToken) {
-      // If the JWT token exists, decode it to get the user data
-      const decodedUser = decodeJwtToken(jwtToken);
+    if (token) {
+      const decodedUser = decodeJwtToken(token);
       setUser(decodedUser);
     }
   }, [])
