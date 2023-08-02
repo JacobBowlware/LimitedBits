@@ -1,8 +1,26 @@
 // Component
+import { useEffect } from "react";
 import FeedList from "../../components/FeedList";
 import PopupForm from "../../components/PopupForm";
+import axios from "axios";
 
-const MyBits: React.FC<{ id: number | undefined }> = ({ id }) => {
+const MyBits = () => {
+
+    useEffect(() => {
+        const fetchUserPosts = async () => {
+            const config = {
+                headers: {
+                    'x-auth-token': localStorage.getItem('token')
+                }
+            }
+
+            const response = await axios.get('/api/bits/user/me', config);
+            console.log(response.data);
+        }
+
+        fetchUserPosts();
+    }, [])
+
     return (
         <div className="section-container section-container-light section-container-tall">
             <div id="overlay"></div>
@@ -19,7 +37,7 @@ const MyBits: React.FC<{ id: number | undefined }> = ({ id }) => {
                         </div>
                     </div>
                 </div>
-                <PopupForm id={id} />
+                <PopupForm />
                 {/* <FeedList feedItems={userPosts} isMyBits={true} /> */}
             </div>
         </div>

@@ -8,7 +8,7 @@ import axios from 'axios';
 import PopupForm from "../../components/PopupForm";
 import FeedList from "../../components/FeedList";
 
-const AuthHome: React.FC<{ id: number | undefined }> = ({ id }) => {
+const AuthHome = () => {
     const [feedBits, setFeedBits] = useState([[]]);
 
     useEffect(() => {
@@ -44,7 +44,7 @@ const AuthHome: React.FC<{ id: number | undefined }> = ({ id }) => {
                             </div>
                         </div>
                     </div>
-                    <PopupForm id={id} />
+                    <PopupForm />
                     <FeedList feedItems={feedBits} />
                 </div>
             </div>

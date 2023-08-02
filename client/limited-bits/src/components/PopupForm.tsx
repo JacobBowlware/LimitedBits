@@ -1,12 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { User } from "../App";
 
-interface PopupFormProps {
-    userID: String | null;
-}
-
-const PopupForm: React.FC<{ id: number | undefined }> = ({ id }) => {
+const PopupForm = () => {
     const [formInput, setFormInput] = useState<String>("");
 
     useEffect(() => {
@@ -29,7 +24,6 @@ const PopupForm: React.FC<{ id: number | undefined }> = ({ id }) => {
         const config = {
             headers: {
                 'x-auth-token': token,
-                'Random-Header': 'Random-ValueWOWOOWOWOOWOW'
             }
         };
 

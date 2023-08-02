@@ -40,6 +40,7 @@ import axios from 'axios';
   - Change 'Create Bit' functionality to actually create a bit in the database - DONE
   - Render real time feed of bits inside the database for users - DONE
   - Populate Profile page with accurate data - DONE
+  - Render users bits on the MyBits page 
   - Change 'Delete Bit' functionality to actually delete a bit in the database - (Inside MyBits page).
   - Implement Loading spinner for buttons or pages.
 */
@@ -47,7 +48,7 @@ import axios from 'axios';
 /* ISSUES TO FIX:
   - After Signup users are not logged in automatically.
   - When user makes a bit post, the page is not refreshed to show the new bit.
-  - 
+  - Profile Data is not being fetched from the DB upon page refresh. - But we still have the users token.
 */
 export interface User {
   id: number,
@@ -105,8 +106,8 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route element={<ProtectedRoutes user={user} noAuthedUsers={false} />}>
-          <Route path="/auth-home" element={<AuthHome id={user?.id} />} />
-          <Route path="/my-bits" element={<MyBits id={user?.id} />} />
+          <Route path="/auth-home" element={<AuthHome />} />
+          <Route path="/my-bits" element={<MyBits />} />
           <Route path="/profile" element={<Profile user={user} />} />
         </Route>
         <Route element={<ProtectedRoutes user={user} noAuthedUsers={true} />}>
