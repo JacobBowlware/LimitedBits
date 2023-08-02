@@ -41,9 +41,9 @@ const Home = () => {
             <div className="section-container section-container-light">
                 <div className="section-container__item-grid reverse-flow extra-gap">
                     <div className="home-feed-card-container">
-                        <FeedCard icon={faUser} body="Overwhelm resistance with speed and suddenness." username="Jacob" />
-                        <FeedCard icon={faUserSecret} body="Believe in yourself!" username="Yameli" />
-                        <FeedCard icon={faUserTie} body="'Better one bad general than two good ones.' - Napoleon Bonaparte" username="Grito" />
+                        <FeedCard icon={"faUser"} body="Overwhelm resistance with speed and suddenness." username="Jacob" />
+                        <FeedCard icon={"faUserSecret"} body="Believe in yourself!" username="Yameli" />
+                        <FeedCard icon={"faUserTie"} body="'Better one bad general than two good ones.' - Napoleon Bonaparte" username="Grito" />
                     </div>
                     <div className="section-container__item-grid__item align-left">
                         <h2 className="section-container__header  home-feed-header">

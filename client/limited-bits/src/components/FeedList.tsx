@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 // Font Awesome Icons
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Components
@@ -11,7 +11,7 @@ import FeedCard from "./common/FeedCard";
 interface FeedCardProps {
     username: string;
     body: string;
-    icon: IconProp;
+    icon: string;
     id?: number;
 }
 
@@ -27,10 +27,15 @@ const FeedList = ({ feedItems, isMyBits }: FeedListProps) => {
     useEffect(() => {
         // Initially the 0 index number should be highlighted, with the left chevron disabled as well.
         const leftFeedBtn = document.getElementById("feed-left-chevron");
+        const rightFeedBtn = document.getElementById("feed-right-chevron");
         const feedNumBtns = document.getElementsByClassName("auth-home-feed-footer-nav__number");
 
         leftFeedBtn?.classList.add("link-null");
         feedNumBtns[0].classList.add("link-null");
+
+        if (feedIndex === 0 && feedIndex === feedLength - 1) {
+            rightFeedBtn?.classList?.add("link-null");
+        }
     }, []);
 
     // Handles all feed index changes & updates styling accordingly.
@@ -64,8 +69,8 @@ const FeedList = ({ feedItems, isMyBits }: FeedListProps) => {
                     }
 
                     return (
-                        isMyBits ? <FeedCard key={key} icon={data.icon} body={data.body} isMyBits={isMyBits} /> :
-                            <FeedCard key={key} icon={data.icon} body={data.body} username={data.username} />
+                        isMyBits ? <FeedCard key={key} icon={data.icon ? data.icon.toString() : "faUser"} body={data.body} isMyBits={isMyBits} /> :
+                            <FeedCard key={key} icon={data.icon ? data.icon.toString() : "faUser"} body={data.body} username={data.username ? data.username : "Temp Name"} />
                     )
                 })}
             <div className="auth-home-feed-footer">
@@ -79,7 +84,7 @@ const FeedList = ({ feedItems, isMyBits }: FeedListProps) => {
                     {
                         feedItems.map((data, key) => {
                             return (
-                                <button onClick={() => handleFeedIndexChange(key)} className="link auth-home-feed-footer-nav__number">
+                                <button key={key} onClick={() => handleFeedIndexChange(key)} className="link auth-home-feed-footer-nav__number">
                                     {key + 1}
                                 </button>
                             )

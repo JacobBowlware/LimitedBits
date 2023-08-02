@@ -37,11 +37,17 @@ import axios from 'axios';
   - Fetch the users actual data from the database using their JWT token - (store the users data in the 'user' state) - DONE
   - When the user logs out, remove their JWT token from local storage. - DONE
   - Inside ProtectedRoutes, check if the user is authed by checking if their JWT token is valid - DONE
-  - Change 'Create Bit' functionality to actually create a bit in the database.
-  - Render real time feed of bits inside the database for users.
+  - Change 'Create Bit' functionality to actually create a bit in the database - DONE
+  - Render real time feed of bits inside the database for users - DONE
+  - Populate Profile page with accurate data - DONE
   - Change 'Delete Bit' functionality to actually delete a bit in the database - (Inside MyBits page).
-  - Populate Profile page with accurate data.
   - Implement Loading spinner for buttons or pages.
+*/
+
+/* ISSUES TO FIX:
+  - After Signup users are not logged in automatically.
+  - When user makes a bit post, the page is not refreshed to show the new bit.
+  - 
 */
 export interface User {
   id: number,

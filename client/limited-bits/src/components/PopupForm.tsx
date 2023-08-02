@@ -25,7 +25,6 @@ const PopupForm: React.FC<{ id: number | undefined }> = ({ id }) => {
         e.preventDefault();
 
         const token = localStorage.getItem('token');
-        console.log(token); // Token is Valid Here
 
         const config = {
             headers: {
@@ -35,8 +34,7 @@ const PopupForm: React.FC<{ id: number | undefined }> = ({ id }) => {
         };
 
         axios.post('http://localhost:3000/api/posts/create', {
-            body: formInput,
-            userID: id
+            body: formInput
         }, config)
             .then((response) => {
                 console.log(response);
