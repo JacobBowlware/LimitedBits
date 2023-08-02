@@ -1,5 +1,4 @@
-import { faCompass, faMedal, faShareSquare, faStar, faUser, faUserDoctor, faUserSecret, faUserTie } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCompass, faMedal, faShareSquare, faUser, faUserSecret, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import ValueCard from "../components/common/ValueCard";
 import FeedCard from "../components/common/FeedCard";
 import ReviewCard from "../components/common/ReviewCard";

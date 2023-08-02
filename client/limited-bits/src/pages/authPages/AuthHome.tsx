@@ -2,12 +2,14 @@
 import { useEffect, useState } from "react";
 import PopupForm from "../../components/PopupForm";
 
+import axios from 'axios';
+
 // Font Awesome Icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight, faUser, faUserSecret, faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faUserSecret, faUserTie } from "@fortawesome/free-solid-svg-icons";
 
 // Components
 import FeedList, { FeedCardProps } from "../../components/FeedList";
+import { User } from "../../App";
 
 const feedBits: FeedCardProps[][] = [
     [
@@ -152,7 +154,18 @@ const feedBits: FeedCardProps[][] = [
     ]
 ]
 
-const AuthHome = () => {
+const AuthHome: React.FC<{ id: number | undefined }> = ({ id }) => {
+    useEffect(() => {
+        const getFeed = async () => {
+            // Call Backend and retrieve bits
+            const response = await axios.get('http://localhost:3000/api/posts/feed');
+
+            console.log(response.data);
+        }
+
+        getFeed();
+    }, []);
+
     return (
         <>
             <div className="section-container section-container-light section-container-tall ">
@@ -170,7 +183,7 @@ const AuthHome = () => {
                             </div>
                         </div>
                     </div>
-                    <PopupForm />
+                    <PopupForm id={id} />
                     <FeedList feedItems={feedBits} />
                 </div>
             </div>

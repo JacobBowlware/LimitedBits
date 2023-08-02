@@ -69,7 +69,7 @@ const userPosts: FeedCardProps[][] = [
     ]
 ];
 
-const MyBits = () => {
+const MyBits: React.FC<{ id: number | undefined }> = ({ id }) => {
     return (
         <div className="section-container section-container-light section-container-tall">
             <div id="overlay"></div>
@@ -86,7 +86,7 @@ const MyBits = () => {
                         </div>
                     </div>
                 </div>
-                <PopupForm />
+                <PopupForm id={id} />
                 <FeedList feedItems={userPosts} isMyBits={true} />
             </div>
         </div>

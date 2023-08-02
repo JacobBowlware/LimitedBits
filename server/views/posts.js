@@ -11,7 +11,7 @@ router.get('/me', auth, async (req, res) => {
 });
 
 // Make a new post
-router.post('/', auth, async (req, res) => {
+router.post('/create', auth, async (req, res) => {
     const { error } = validatePost(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
@@ -44,7 +44,8 @@ router.delete('/:id', auth, async (req, res) => {
 });
 
 // Get last 50 posts for the feed
-router.get('/feed', auth, async (req, res) => {
+router.get('/feed', async (req, res) => {
+    console.log("FEED REQUESTED");
     let posts = await Post.find().sort('-dateCreated').limit(50);
 
     res.status(200).send(posts);

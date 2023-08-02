@@ -5,6 +5,7 @@ import AuthHome from '../pages/authPages/AuthHome';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { useNavigate } from 'react-router-dom';
 interface ProtectedRoutesProps {
     user: User | null;
     noAuthedUsers: boolean;
@@ -12,6 +13,7 @@ interface ProtectedRoutesProps {
 
 const ProtectedRoutes: React.FC<ProtectedRoutesProps> = ({ user, noAuthedUsers }) => {
     const [authenticated, setAuthenticated] = useState<boolean | null>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const checkAuthentication = async () => {
@@ -24,13 +26,13 @@ const ProtectedRoutes: React.FC<ProtectedRoutesProps> = ({ user, noAuthedUsers }
 
                 setAuthenticated(result.status === 200);
             } catch (error) {
-                console.log(error);
                 setAuthenticated(false);
+                navigate('/login');
             }
         };
 
         checkAuthentication();
-    }, []);
+    }, [navigate]);
 
     if (authenticated === null) {
         return <div>Loading...</div>; // Loading state.
@@ -38,7 +40,7 @@ const ProtectedRoutes: React.FC<ProtectedRoutesProps> = ({ user, noAuthedUsers }
     else if (noAuthedUsers) {
         // We don't want to allow authed users to access the login/signup pages.
         if (authenticated) {
-            return <AuthHome />;
+            return <Home />;
         } else {
             return <Outlet />;
         }

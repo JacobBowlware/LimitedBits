@@ -1,6 +1,12 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
+import { User } from "../App";
 
-const PopupForm = () => {
+interface PopupFormProps {
+    userID: String | null;
+}
+
+const PopupForm: React.FC<{ id: number | undefined }> = ({ id }) => {
     const [formInput, setFormInput] = useState<String>("");
 
     useEffect(() => {
@@ -15,10 +21,30 @@ const PopupForm = () => {
         });
     }, []);
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // TODO: Send users post to the Database.
+        const token = localStorage.getItem('token');
+        console.log(token); // Token is Valid Here
+
+        const config = {
+            headers: {
+                'x-auth-token': token,
+                'Random-Header': 'Random-ValueWOWOOWOWOOWOW'
+            }
+        };
+
+        axios.post('http://localhost:3000/api/posts/create', {
+            body: formInput,
+            userID: id
+        }, config)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
     }
     return (
         <div className="section-container__item popup">

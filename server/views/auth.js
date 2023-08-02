@@ -37,7 +37,7 @@ router.post('/verify-token', async (req, res) => {
 
         const user = await User.findById(decodedToken._id).select('-password');
         if (!user) {
-            return res.status(400).send('Invalid token');
+            res.status(400).send('Invalid token');
         }
 
         res.status(200).send(user);

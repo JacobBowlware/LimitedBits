@@ -30,16 +30,17 @@ import Header from './components/common/Header'
 import Footer from './components/common/Footer'
 import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoutes from './components/ProtectedRoutes';
+import axios from 'axios';
 
 /* TODO AFTER BACKEND DEVELOPMENT:
   - When user creates account or logs in, make sure to send their email as all lowercase - DONE
   - Fetch the users actual data from the database using their JWT token - (store the users data in the 'user' state) - DONE
   - When the user logs out, remove their JWT token from local storage. - DONE
-  - Inside ProtectedRoutes, check if the user is authed by checking if their JWT token is valid.
+  - Inside ProtectedRoutes, check if the user is authed by checking if their JWT token is valid - DONE
   - Change 'Create Bit' functionality to actually create a bit in the database.
+  - Render real time feed of bits inside the database for users.
   - Change 'Delete Bit' functionality to actually delete a bit in the database - (Inside MyBits page).
   - Populate Profile page with accurate data.
-  - Render real time feed of bits inside the database for users.
   - Implement Loading spinner for buttons or pages.
 */
 export interface User {
@@ -69,6 +70,7 @@ const decodeJwtToken = (token: string): User | null => {
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
+  console.log(user);
 
   useEffect(() => {
     // Check if the JWT token exists in local storage
@@ -97,8 +99,8 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route element={<ProtectedRoutes user={user} noAuthedUsers={false} />}>
-          <Route path="/auth-home" element={<AuthHome />} />
-          <Route path="/my-bits" element={<MyBits />} />
+          <Route path="/auth-home" element={<AuthHome id={user?.id} />} />
+          <Route path="/my-bits" element={<MyBits id={user?.id} />} />
           <Route path="/profile" element={<Profile user={user} />} />
         </Route>
         <Route element={<ProtectedRoutes user={user} noAuthedUsers={true} />}>
