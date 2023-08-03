@@ -1,25 +1,34 @@
 // Component
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FeedList from "../../components/FeedList";
 import PopupForm from "../../components/PopupForm";
 import axios from "axios";
 
 const MyBits = () => {
+    const [userPosts, setUserPosts] = useState([[]]);
 
     useEffect(() => {
         const fetchUserPosts = async () => {
-            const config = {
-                headers: {
-                    'x-auth-token': localStorage.getItem('token')
+            try {
+                const config = {
+                    headers: {
+                        'x-auth-token': localStorage.getItem('token')
+                    }
                 }
-            }
 
-            const response = await axios.get('/api/bits/user/me', config);
-            console.log(response.data);
+                const response = await axios.get('http://localhost:3000/api/posts/me', config);
+
+                setUserPosts(response.data);
+            }
+            catch (error) {
+                console.log(error);
+            }
         }
 
         fetchUserPosts();
     }, [])
+
+    console.log(userPosts.length)
 
     return (
         <div className="section-container section-container-light section-container-tall">
@@ -38,7 +47,14 @@ const MyBits = () => {
                     </div>
                 </div>
                 <PopupForm />
-                {/* <FeedList feedItems={userPosts} isMyBits={true} /> */}
+                <div className="feed-list-container">
+                    {userPosts.length !== 0 ? <FeedList feedItems={userPosts} isMyBits={true} /> :
+                        <div>
+                            <h2 className="feed-list-container-header">You have not posted any bits yet.</h2>
+                            <p className="feed-list-container-p">Click the button above to post your first bit!</p>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     );

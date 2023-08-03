@@ -8,7 +8,27 @@ const { User } = require('../models/user');
 router.get('/me', auth, async (req, res) => {
     let posts = await Post.find({ userID: req.user._id }).sort('-dateCreated');
 
-    res.status(200).send(posts);
+    // Must send the posts back in the format of an array of arrays
+    // Each array in the array is a row of posts (5 posts per row)
+    let postsArray = [];
+    let tempArray = [];
+    let count = 0;
+
+    for (let i = 0; i < posts.length; i++) {
+        if (count == 5) {
+            postsArray.push([...tempArray]);
+            tempArray = [];
+            count = 0;
+        }
+        tempArray.push(posts[i]);
+        count++;
+    }
+
+    if (tempArray.length > 0) {
+        postsArray.push([...tempArray]);
+    }
+
+    res.status(200).send(postsArray);
 });
 
 // Make a new post

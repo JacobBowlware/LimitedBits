@@ -1,0 +1,32 @@
+.feed-list-container {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.feed-list-container-header {
+    font-size: 1.8rem;
+    color: var(--var-primary);
+    font-weight: 600;
+    margin: 0;
+}
+
+.feed-list-container-p {
+    color: var(--var-text);
+    font-weight: 300;
+    margin: 0.3rem 0;
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+    .feed-list-container-header {
+        font-size: 2rem;
+    }
+
+    .feed-list-container-p {
+        font-size: 1.2rem;
+    }
+}

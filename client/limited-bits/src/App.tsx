@@ -14,6 +14,7 @@ import './css/components/FeedCard.css';
 import './css/components/ReviewCard.css';
 import './css/authPages/AuthHome.css';
 import './css/components/PopupForm.css'
+import './css/components/FeedList.css'
 
 // Pages
 import Home from './pages/Home';
@@ -30,17 +31,10 @@ import Header from './components/common/Header'
 import Footer from './components/common/Footer'
 import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoutes from './components/ProtectedRoutes';
-import axios from 'axios';
 
 /* TODO AFTER BACKEND DEVELOPMENT:
-  - When user creates account or logs in, make sure to send their email as all lowercase - DONE
-  - Fetch the users actual data from the database using their JWT token - (store the users data in the 'user' state) - DONE
-  - When the user logs out, remove their JWT token from local storage. - DONE
-  - Inside ProtectedRoutes, check if the user is authed by checking if their JWT token is valid - DONE
-  - Change 'Create Bit' functionality to actually create a bit in the database - DONE
-  - Render real time feed of bits inside the database for users - DONE
-  - Populate Profile page with accurate data - DONE
-  - Render users bits on the MyBits page 
+  - When user has no bits, display a message saying they have no bits - DONE
+  - Render users bits on the MyBits page - DONE
   - Change 'Delete Bit' functionality to actually delete a bit in the database - (Inside MyBits page).
   - Implement Loading spinner for buttons or pages.
 */
