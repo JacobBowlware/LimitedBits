@@ -22,7 +22,7 @@ interface FeedListProps {
 
 const FeedList = ({ feedItems, isMyBits }: FeedListProps) => {
     const [feedIndex, setFeedIndex] = useState<number>(0);
-    const [feedLength, setFeedLength] = useState<number>(feedItems.length);
+    const feedLength = feedItems.length;
 
     useEffect(() => {
         // Initially the 0 index number should be highlighted, with the left chevron disabled as well.

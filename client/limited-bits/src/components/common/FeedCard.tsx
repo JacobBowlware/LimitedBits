@@ -37,8 +37,6 @@ const FeedCard = ({ username, body, icon, isMyBits, id }: FeedCardProps) => {
                 console.log(err);
             }
             setIconDeleted(true);
-
-
         }
         else {
             // Set delete mode to true

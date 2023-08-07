@@ -34,16 +34,15 @@ import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoutes from './components/ProtectedRoutes';
 
 /* TODO AFTER BACKEND DEVELOPMENT:
-  - When user has no bits, display a message saying they have no bits - DONE
-  - Render users bits on the MyBits page - DONE
-  - Change 'Delete Bit' functionality to actually delete a bit in the database - (Inside MyBits page).
+  - If a user is currently waiting their 1 week to post a bit, display a time icon instead of 'post bit' and when hovered 
+    over, display a message saying how long they have left to wait. 
   - Implement Loading spinner for buttons or pages.
 */
 
 /* ISSUES TO FIX:
+  - Feed bits and users bits are being rendered backwards.
   - After Signup users are not logged in automatically.
-  - When user makes a bit post, the page is not refreshed to show the new bit.
-  - Profile Data is not being fetched from the DB upon page refresh. - But we still have the users token.
+  - When user clicks on 'post bit', the number 1 on the bottom navbar appears above the form.
 */
 export interface User {
   id: number,

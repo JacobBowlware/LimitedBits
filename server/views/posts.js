@@ -36,16 +36,16 @@ router.post('/create', auth, async (req, res) => {
     const { error } = validatePost(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
-    const user = await User.findById(req.user._id);
+    // const user = await User.findById(req.user._id);
 
-    // Users can only post 1 bit every 7 days
-    if (user.dateOfLastPost != null && user.dateOfLastPost > Date.now() - 604800000) {
-        return res.status(400).send("You can only post once every 7 days.");
-    }
-    else {
-        user.dateOfLastPost = Date.now();
-        await user.save();
-    }
+    // // Users can only post 1 bit every 7 days
+    // if (user.dateOfLastPost != null && user.dateOfLastPost > Date.now() - 604800000) {
+    //     return res.status(400).send("You can only post once every 7 days.");
+    // }
+    // else {
+    //     user.dateOfLastPost = Date.now();
+    //     await user.save();
+    // }
 
     // Insert the new post
     let post = new Post({
@@ -54,8 +54,6 @@ router.post('/create', auth, async (req, res) => {
     });
 
     await post.save();
-    console.log(user);
-
     // Return the new post in the response
     res.send(post);
 });
@@ -80,7 +78,7 @@ router.delete('/:id', auth, async (req, res) => {
 
 // Get last 50 posts for the feed
 router.get('/feed', auth, async (req, res) => {
-    let posts = await Post.find().sort('dateCreated').limit(50);
+    let posts = await Post.find().sort('-dateCreated').limit(50);
 
     let postsArray = [];
     let tempArray = [];
@@ -105,7 +103,6 @@ router.get('/feed', auth, async (req, res) => {
                 let user = await User.findById(postsArray[i][j].userID);
                 postsArray[i][j]["username"] = user.username;
                 postsArray[i][j]["icon"] = user.icon;
-                postsArray[i][j].testData = "Test Data"
             }
         }
 
