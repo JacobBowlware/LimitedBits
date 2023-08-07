@@ -13,6 +13,7 @@ import './css/components/ValueCard.css';
 import './css/components/FeedCard.css';
 import './css/components/ReviewCard.css';
 import './css/authPages/AuthHome.css';
+import './css/authPages/MyBits.css'
 import './css/components/PopupForm.css'
 import './css/components/FeedList.css'
 

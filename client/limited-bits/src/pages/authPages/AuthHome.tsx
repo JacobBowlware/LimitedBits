@@ -31,7 +31,7 @@ const AuthHome = () => {
         <>
             <div className="section-container section-container-light section-container-tall ">
                 <div id="overlay"></div>
-                <div className="section-container__item">
+                <div className="section-container__item feed-container">
                     <div className="auth-home-header-container">
                         <h1 className="section-container__header">
                             <span className="text-highlight">Todays</span> Bits
@@ -45,7 +45,9 @@ const AuthHome = () => {
                         </div>
                     </div>
                     <PopupForm />
-                    <FeedList feedItems={feedBits} />
+                    <div className="feed-list-container">
+                        <FeedList feedItems={feedBits} />
+                    </div>
                 </div>
             </div>
         </>

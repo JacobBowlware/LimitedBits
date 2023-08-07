@@ -1,8 +1,9 @@
+.feed-container,
 .feed-list-container {
-    min-height: 70vh;
+    min-height: 70vh !important;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     text-align: center;
     width: 100%;
 }

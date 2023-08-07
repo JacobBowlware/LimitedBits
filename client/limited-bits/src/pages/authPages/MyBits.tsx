@@ -17,6 +17,7 @@ const MyBits = () => {
                 }
 
                 const response = await axios.get('http://localhost:3000/api/posts/me', config);
+                console.log(response.data);
 
                 setUserPosts(response.data);
             }
@@ -27,8 +28,6 @@ const MyBits = () => {
 
         fetchUserPosts();
     }, [])
-
-    console.log(userPosts.length)
 
     return (
         <div className="section-container section-container-light section-container-tall">
@@ -49,7 +48,7 @@ const MyBits = () => {
                 <PopupForm />
                 <div className="feed-list-container">
                     {userPosts.length !== 0 ? <FeedList feedItems={userPosts} isMyBits={true} /> :
-                        <div>
+                        <div className="my-bits-empty">
                             <h2 className="feed-list-container-header">You have not posted any bits yet.</h2>
                             <p className="feed-list-container-p">Click the button above to post your first bit!</p>
                         </div>

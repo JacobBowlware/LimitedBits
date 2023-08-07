@@ -51,6 +51,8 @@ router.post('/create', auth, async (req, res) => {
 // Delete a post
 router.delete('/:id', auth, async (req, res) => {
     // Check if the post exists
+    console.log("Deleting post: " + req.params.id)
+
     let post = await Post.findById(req.params.id);
     if (!post) return res.status(404).send('The post with the given ID was not found.');
 
