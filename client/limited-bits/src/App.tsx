@@ -86,6 +86,9 @@ function App() {
 
   const onLoginSuccess = (userData: User) => {
     setUser(userData);
+
+    localStorage.setItem("username", userData.username);
+    localStorage.setItem("email", userData.email);
   };
 
   const Root = () => {
@@ -103,7 +106,7 @@ function App() {
         <Route element={<ProtectedRoutes user={user} noAuthedUsers={false} />}>
           <Route path="/auth-home" element={<AuthHome />} />
           <Route path="/my-bits" element={<MyBits />} />
-          <Route path="/profile" element={<Profile user={user} />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
         <Route element={<ProtectedRoutes user={user} noAuthedUsers={true} />}>
           <Route path="/sign-up" element={<SignUp onLoginSuccess={onLoginSuccess} />} />

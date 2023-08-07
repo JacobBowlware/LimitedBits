@@ -1,13 +1,24 @@
-
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { User } from "../../App";
 
-const Profile = ({ user }: { user: User | null }) => {
-    if (!user)
-        return null;
+const Profile = () => {
+    const [username, setUsername] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+
+    useEffect(() => {
+        const username = localStorage.getItem("username");
+        const email = localStorage.getItem("email");
+
+        setUsername(username!);
+        setEmail(email!);
+
+    }, [])
+
 
     const handleLogout = () => {
         localStorage.removeItem("token");
+        localStorage.removeItem("username");
+        localStorage.removeItem("email");
         window.location.href = "/";
     }
 
@@ -20,10 +31,10 @@ const Profile = ({ user }: { user: User | null }) => {
                     </h1>
                     <div className="form-card__item">
                         <p className="form-card__item__text">
-                            <span className="text-highlight">Username:</span> {user.username}
+                            <span className="text-highlight">Username:</span> {username}
                         </p>
                         <p className="form-card__item__text">
-                            <span className="text-highlight">Email:</span> {user.email}
+                            <span className="text-highlight">Email:</span> {email}
                         </p>
                     </div>
                     <div>
