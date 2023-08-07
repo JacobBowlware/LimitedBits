@@ -17,8 +17,6 @@ const MyBits = () => {
                 }
 
                 const response = await axios.get('http://localhost:3000/api/posts/me', config);
-                console.log(response.data);
-
                 setUserPosts(response.data);
             }
             catch (error) {

@@ -21,7 +21,11 @@ const userSchema = new mongoose.Schema({
     icon: {
         type: String,
         default: "faUser",
-    }
+    },
+    dateOfLastPost: {
+        type: Date,
+        default: null,
+    },
 })
 
 userSchema.methods.generateAuthToken = function () {
@@ -37,6 +41,7 @@ const validateUser = (user) => {
         email: Joi.string().min(5).max(255).required().email(),
         password: Joi.string().min(5).max(1024).required(),
         icon: Joi.string().min(3).max(30),
+        dateOfLastPost: Joi.date(),
     })
 
     return schema.validate(user);
