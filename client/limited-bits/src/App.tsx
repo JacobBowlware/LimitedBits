@@ -40,8 +40,8 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 */
 
 /* ISSUES TO FIX:
-  - Feed bits and users bits are being rendered backwards.
-  - After Signup users are not logged in automatically.
+  - Feed bits and users bits are being rendered backwards - DONE
+  - After Signup users are not logged in automatically - DONE
   - When user clicks on 'post bit', the number 1 on the bottom navbar appears above the form.
 */
 export interface User {

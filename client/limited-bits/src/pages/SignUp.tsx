@@ -51,6 +51,8 @@ const SignUp: React.FC<SignupProps> = ({ onLoginSuccess }) => {
             localStorage.setItem('token', token);
 
             const userData: User = response.data;
+
+            console.log(userData);
             onLoginSuccess(userData);
         }
         catch (error) {
