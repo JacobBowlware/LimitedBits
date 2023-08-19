@@ -51,7 +51,7 @@ const PopupForm = () => {
             document.querySelector("#overlay")?.classList.remove("overlay");
         });
 
-        fetchUserPostDate();
+        // fetchUserPostDate();
     }, []);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

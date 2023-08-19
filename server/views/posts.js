@@ -41,16 +41,16 @@ router.post('/create', auth, async (req, res) => {
     const { error } = validatePost(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
-    const user = await User.findById(req.user._id);
+    // const user = await User.findById(req.user._id);
 
-    // Users can only post 1 bit every 7 days
-    if (user.dateOfLastPost != null && user.dateOfLastPost > Date.now() - 604800000) {
-        return res.status(400).send("You can only post once every 7 days.");
-    }
-    else {
-        user.dateOfLastPost = Date.now();
-        await user.save();
-    }
+    // // Users can only post 1 bit every 7 days
+    // if (user.dateOfLastPost != null && user.dateOfLastPost > Date.now() - 604800000) {
+    //     return res.status(400).send("You can only post once every 7 days.");
+    // }
+    // else {
+    //     user.dateOfLastPost = Date.now();
+    //     await user.save();
+    // }
 
     // Insert the new post
     let post = new Post({

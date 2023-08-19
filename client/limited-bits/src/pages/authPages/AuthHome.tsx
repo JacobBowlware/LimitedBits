@@ -20,6 +20,7 @@ const AuthHome = () => {
                 }
             }
             const response = await axios.get('http://localhost:3000/api/posts/feed', config);
+            console.log(response.data)
             setFeedBits(response.data);
         }
         getFeed();

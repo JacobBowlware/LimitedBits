@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
     if (user) return res.status(400).send("User already registered.");
 
     // Insert the new user if they do not exist yet
-    user = new User(_.pick(req.body, ['username', 'email', 'password']));
+    user = new User(_.pick(req.body, ['username', 'email', 'password', 'icon']));
     const salt = await bcrypt.genSalt(10);
 
     // Hash the password

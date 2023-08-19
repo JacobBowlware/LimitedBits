@@ -26,10 +26,12 @@ const SignUp: React.FC<SignupProps> = ({ onLoginSuccess }) => {
 
     const handleIconSelection = (): string => {
         const icons = ["faUser", "faUserSecret", "faUserTie"];
-        const randomIndex = Math.floor(Math.random() * icons.length);
-        const selectedIcon = icons[randomIndex];
 
-        return selectedIcon;
+        const randomNum = Math.floor(Math.random() * 100);
+        const randomIndex = randomNum % icons.length;
+
+        alert(icons[randomIndex])
+        return icons[randomIndex];
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
