@@ -49,6 +49,7 @@ export interface User {
   username: string,
   icon: string,
   email: string,
+  dateOfLastPost: Date
 }
 
 const decodeJwtToken = (token: string): User | null => {
@@ -61,6 +62,7 @@ const decodeJwtToken = (token: string): User | null => {
       username: decodedToken.username,
       icon: decodedToken.icon,
       email: decodedToken.email,
+      dateOfLastPost: decodedToken.dateOfLastPost
     };
 
     return user;
@@ -74,13 +76,13 @@ function App() {
   console.log(user);
 
   useEffect(() => {
-    // Check if the JWT token exists in local storage
     const token = localStorage.getItem("token");
 
     if (token) {
       const decodedUser = decodeJwtToken(token);
       setUser(decodedUser);
     }
+
   }, [])
 
   const onLoginSuccess = (userData: User) => {
