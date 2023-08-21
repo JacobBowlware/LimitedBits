@@ -73,7 +73,6 @@ const decodeJwtToken = (token: string): User | null => {
 
 function App() {
   const [user, setUser] = useState<User | null>(null);
-  console.log(user);
 
   useEffect(() => {
     const token = localStorage.getItem("token");

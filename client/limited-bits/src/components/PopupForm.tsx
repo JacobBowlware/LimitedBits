@@ -10,9 +10,7 @@ const fetchUserLastPostDate = async () => {
     }
     const response = await axios.get('http://localhost:3000/api/posts/date-of-last-post', config);
 
-    console.log(response.data);
     return response.data;
-
 }
 
 const PopupForm = () => {
@@ -51,7 +49,7 @@ const PopupForm = () => {
             document.querySelector("#overlay")?.classList.remove("overlay");
         });
 
-        // fetchUserPostDate();
+        fetchUserPostDate();
     }, []);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

@@ -30,7 +30,6 @@ const SignUp: React.FC<SignupProps> = ({ onLoginSuccess }) => {
         const randomNum = Math.floor(Math.random() * 100);
         const randomIndex = randomNum % icons.length;
 
-        alert(icons[randomIndex])
         return icons[randomIndex];
     };
 
@@ -54,7 +53,6 @@ const SignUp: React.FC<SignupProps> = ({ onLoginSuccess }) => {
 
             const userData: User = response.data;
 
-            console.log(userData);
             onLoginSuccess(userData);
         }
         catch (error) {
