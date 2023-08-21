@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
 // Font Awesome Icons
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faChevronLeft, faChevronRight, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Components
@@ -25,17 +24,7 @@ const FeedList = ({ feedItems, isMyBits }: FeedListProps) => {
     const feedLength = feedItems.length;
 
     useEffect(() => {
-        // Initially the 0 index number should be highlighted, with the left chevron disabled as well.
-        const leftFeedBtn = document.getElementById("feed-left-chevron");
-        const rightFeedBtn = document.getElementById("feed-right-chevron");
-        const feedNumBtns = document.getElementsByClassName("auth-home-feed-footer-nav__number");
-
-        leftFeedBtn?.classList?.add("link-null");
-        feedNumBtns[0].classList?.add("link-null");
-
-        if (feedIndex === 0 && feedIndex === feedLength - 1) {
-            rightFeedBtn?.classList?.add("link-null");
-        }
+        handleFeedIndexChange(0);
     }, []);
 
     // Handles all feed index changes & updates styling accordingly.
@@ -54,8 +43,9 @@ const FeedList = ({ feedItems, isMyBits }: FeedListProps) => {
             rightFeedBtn?.classList?.add("link-null");
 
         const feedNumBtns = document.getElementsByClassName("auth-home-feed-footer-nav__number");
-        for (let i = 0; i < feedNumBtns.length; i++)
+        for (let i = 0; i < feedNumBtns.length; i++) {
             feedNumBtns[i].classList?.remove("link-null");
+        }
 
         feedNumBtns[index].classList?.add("link-null");
     }
@@ -65,7 +55,7 @@ const FeedList = ({ feedItems, isMyBits }: FeedListProps) => {
             {
                 feedItems[feedIndex].map((data, key) => {
                     if (key >= 5) {
-                        return;
+                        return null;
                     }
 
                     return (

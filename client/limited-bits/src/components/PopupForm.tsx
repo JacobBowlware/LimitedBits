@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const fetchUserLastPostDate = async () => {
-    // Call backend api end-point like 
     const config = {
         headers: {
             'x-auth-token': localStorage.getItem('token')
@@ -23,8 +22,6 @@ const PopupForm = () => {
             const userLastPostDate = await fetchUserLastPostDate();
 
             if (userLastPostDate) {
-                // check if userLastPostDate is within 7 days
-
                 const today = new Date();
                 const lastPostDate = new Date(userLastPostDate);
 
