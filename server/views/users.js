@@ -1,9 +1,9 @@
 const _ = require('lodash');
-const bcrypt = require('bcrypt');
 const express = require('express');
 const router = express.Router();
 const { User, validateUser } = require('../models/user');
 const auth = require('../middleware/auth');
+const bcrypt = require('bcryptjs');
 
 router.get('/me', auth, async (req, res) => {
     const user = await User.findById(req.user._id).select('-password');
