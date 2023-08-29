@@ -34,14 +34,10 @@ import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoutes from './components/ProtectedRoutes';
 
 /* TODO AFTER BACKEND DEVELOPMENT:
-  - If a user is currently waiting their 1 week to post a bit, display a time icon instead of 'post bit' and when hovered 
-    over, display a message saying how long they have left to wait. 
   - Implement Loading spinner for buttons or pages.
 */
 
 /* ISSUES TO FIX:
-  - Feed bits and users bits are being rendered backwards - DONE
-  - After Signup users are not logged in automatically - DONE
   - When user clicks on 'post bit', the number 1 on the bottom navbar appears above the form.
 */
 export interface User {

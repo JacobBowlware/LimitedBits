@@ -9,6 +9,7 @@ require('./startup/cors')(app);
 require('./startup/routes')(app);
 require('./startup/db')();
 require('./startup/config')();
+require('./startup/prod')(app);
 
 app.use((err, req, res, next) => {
     // Log the error using Winston

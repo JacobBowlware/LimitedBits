@@ -1,0 +1,13 @@
+{
+  "name": "limitedbits",
+  "version": "1.0.0",
+  "description": "## What is LimitedBits LimitedBits is a social media platform built to provide users with a stream of short, high quality, and informative content. Users are only allowed to make 1 post per week - in order to ensure high quality posting.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
